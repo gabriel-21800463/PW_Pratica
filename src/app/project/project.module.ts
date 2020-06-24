@@ -10,6 +10,7 @@ import { MyPersonnelProjectsComponent } from './my-personnel-projects/my-personn
 import { OtherProjectsComponent } from './other-projects/other-projects.component';
 
 
+
 @NgModule({
   declarations: [
     ManageProjectsComponent,

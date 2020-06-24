@@ -18,6 +18,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { UniversityComponent } from './university/university.component';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyDSK_cAe7IiiXSFJUAQbt2DKIUXyGRWa-c',
@@ -34,7 +35,8 @@ export const firebaseConfig = {
   declarations: [
     FooterComponent,
     MainComponent,
-    NavbarComponent
+    NavbarComponent,
+    UniversityComponent
   ],
   imports: [
     BrowserModule,
