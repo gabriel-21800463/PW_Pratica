@@ -78,7 +78,7 @@ export class ManageAcademicUpdateComponent implements OnInit {
       fieldOfStudy: new FormControl('', [Validators.required, Validators.maxLength(80)]),
       grade: new FormControl('', [Validators.required, Validators.maxLength(40)]),
       activities: new FormControl('', [Validators.required, Validators.maxLength(60)]),
-      description: new FormControl('', [Validators.required, Validators.maxLength(150)]),
+      description: new FormControl('', [Validators.required, Validators.maxLength(350)]),
       startDate: new FormControl('', [Validators.required]),
       endDate: new FormControl('', [Validators.required]),
       formRecaptcha: new FormControl(null, [Validators.required]),

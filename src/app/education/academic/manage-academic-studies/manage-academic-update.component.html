@@ -69,13 +69,15 @@
         </div>
       </div>
     </div>
-    <div class="form-group col-md-14 mb-14">
-      <label for="inputDescription">Description</label>
-      <input type="text" class="form-control" [ngClass]="manageAcademicForm.get('description').invalid && (manageAcademicForm.get('description').dirty || manageAcademicForm.get('description').touched) && manageAcademicForm.controls['description'].errors ? 'is-invalid' : ''"
-             id="inputDescription" placeholder="Description" formControlName="description">
+    <div class="input-group">
+      <div for="inputDescription" class="input-group-prepend">
+        <span class="input-group-text">Description</span>
+      </div>
+      <textarea [ngClass]="manageAcademicForm.get('description').invalid && (manageAcademicForm.get('description').dirty || manageAcademicForm.get('description').touched) && manageAcademicForm.controls['description'].errors ? 'is-invalid' : ''"
+        id="inputDescription" formControlName="description" class="form-control" aria-label="Com textarea"></textarea>
       <div class="invalid-feedback" *ngIf="manageAcademicForm.get('description').invalid && (manageAcademicForm.get('description').dirty || manageAcademicForm.get('description').touched)">
         <span *ngIf="manageAcademicForm.controls['description'].hasError('required')">This field is required</span>
-        <span *ngIf="manageAcademicForm.controls['description'].hasError('maxlength')">Max length of this field is 150 characters</span>
+        <span *ngIf="manageAcademicForm.controls['description'].hasError('maxlength')">Max length of this field is 350 characters</span>
       </div>
     </div>
     <hr>
