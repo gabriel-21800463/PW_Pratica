@@ -7,4 +7,23 @@
       <span>Create a Academic Study</span>
     </button>
   </h2>
+  <hr>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="academics?.length === 0">
+      <span>No projects found</span>
+    </div>
+
+    <div class="row" >
+      <div class="col-md-4 mt-3" *ngFor="let academic of academics; let i = index">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{ academic.educationalInstitution }} - {{ academic.formation }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Company: {{ academic.fieldOfStudy }}</h6>
+            <p class="card-text">You can find us at: {{ academic.startDate }}, {{ academic.endDate }}.</p>
+            <p class="card-text">CEP: {{ academic.grade }}, {{ academic.activities }}.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
 </div>

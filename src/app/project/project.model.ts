@@ -12,6 +12,7 @@ export interface IProject {
 }
 
 export class Project implements IProject {
+
   constructor(
     public id?: string,
     public projectName?: string,
@@ -43,4 +44,5 @@ export class ProjectTeamMember implements IProjectTeamMember {
     public endDate?: string
   ) {}
 }
+
 

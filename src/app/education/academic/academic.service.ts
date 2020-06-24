@@ -6,6 +6,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { IAcademic } from './academic.model';
 import * as firebase from 'firebase';
+import {IProject} from "../../project/project.model";
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +28,13 @@ export class AcademicService {
         }));
   }
 
+  public async createProject(project: IProject): Promise<void> {
+    const currentUser = firebase.auth().currentUser;
+    project.id = this.af.createId();
+    project.projectTeamMembers.forEach(ptm => ptm.id = this.af.createId());
+    return await this.af.collection(AcademicService.ACADEMIC_KEY).doc(project.id).set(project);
+  }
+
   public getAcademicById(academicId: string): Observable<IAcademic> {
     return this.af.collection<IAcademic>(AcademicService.ACADEMIC_KEY).doc(academicId).valueChanges();
   }
@@ -34,6 +42,11 @@ export class AcademicService {
   public async createAcademic(academic: IAcademic): Promise<void> {
     const currentUser = firebase.auth().currentUser;
     academic.id = this.af.createId();
+    return await this.af.collection(AcademicService.ACADEMIC_KEY).doc(academic.id).set(academic);
+  }
+  public async updateProject(academic: IAcademic): Promise<void> {
+    const currentUser = firebase.auth().currentUser;
+    academic.academicTeamMembers.filter(ptm => !ptm.id).forEach(ptmFiltered => ptmFiltered.id = this.af.createId());
     return await this.af.collection(AcademicService.ACADEMIC_KEY).doc(academic.id).set(academic);
   }
 
