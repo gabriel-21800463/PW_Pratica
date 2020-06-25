@@ -10,6 +10,7 @@ import { ManageAcademicDetailComponent } from './academic/manage-academic-studie
 
 
 
+
 @NgModule({
   declarations: [
     ManageAcademicStudiesComponent,

@@ -9,7 +9,7 @@ import { NavbarComponent } from './layouts/navbar/navbar.component';
 import { SharedModule } from './shared/shared.module';
 import { HomeModule } from './home/home.module';
 import { ProjectModule } from './project/project.module';
-import { EducationModule } from './education/education.module';
+import { EducationModule} from './education/education.module';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from '@angular/fire';
@@ -18,7 +18,8 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { UniversityComponent } from './university/university.component';
+
+
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyDSK_cAe7IiiXSFJUAQbt2DKIUXyGRWa-c',
@@ -35,8 +36,7 @@ export const firebaseConfig = {
   declarations: [
     FooterComponent,
     MainComponent,
-    NavbarComponent,
-    UniversityComponent
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
