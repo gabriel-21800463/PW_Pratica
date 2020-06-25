@@ -17,13 +17,59 @@
       <div class="col-md-4 mt-3" *ngFor="let academic of academics; let i = index">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">{{ academic.educationalInstitution }} - {{ academic.formation }}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Company: {{ academic.fieldOfStudy }}</h6>
-            <p class="card-text">You can find us at: {{ academic.startDate }}, {{ academic.endDate }}.</p>
-            <p class="card-text">CEP: {{ academic.grade }}, {{ academic.activities }}.</p>
+            <h5 class="card-title">{{ academic.educationalInstitution}} - {{ academic.formation }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Field Of Study: {{ academic.fieldOfStudy }}</h6>
+            <p class="card-text">Data: {{ academic.startDate }}, {{ academic.endDate }}.</p>
+            <p class="card-text">Grade: {{ academic.grade}}</p>
           </div>
         </div>
       </div>
     </div>
+
+  <br>
+
+  <div class="table-responsive" id="projectsTable" *ngIf="academics?.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col" ><span>ID</span></th>
+        <th scope="col" ><span>Project Name</span></th>
+        <th scope="col" ><span>Project Alias</span></th>
+        <th scope="col" ><span>Company Name</span></th>
+        <th scope="col" ><span>City</span></th>
+        <th scope="col" >Personnel Project</th>
+        <th scope="col"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let academic of academics ;trackBy: trackId">
+        <td><a [routerLink]="[academic.id, 'view']">{{ academic.id }}</a></td>
+        <td>{{ academic.educationalInstitution }}</td>
+        <td>{{ academic.formation }}</td>
+        <td>{{ academic.startDate }}</td>
+        <td>{{ academic.endDate }}</td>
+        <td>{{ academic.grade}}</td>
+        <td class="text-right">
+          <div class="btn-group">
+            <button type="submit" [routerLink]="[academic.id, 'view']" class="btn btn-info btn-sm">
+              <i class="fa fa-eye"></i>
+              <span class="d-none d-md-inline">View</span>
+            </button>
+
+            <button type="submit" [routerLink]="[academic.id, 'edit']" class="btn btn-primary btn-sm">
+              <i class="fa fa-pencil"></i>
+              <span class="d-none d-md-inline">Edit</span>
+            </button>
+
+            <button type="submit" (click)="delete(academic)" class="btn btn-danger btn-sm">
+              <i class="fa fa-times"></i>
+              <span class="d-none d-md-inline">Delete</span>
+            </button>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 
 </div>

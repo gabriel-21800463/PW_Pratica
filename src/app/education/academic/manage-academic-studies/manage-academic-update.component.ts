@@ -18,7 +18,7 @@ export class ManageAcademicUpdateComponent implements OnInit {
   constructor(
     protected activatedRoute: ActivatedRoute,
     private toastr: ToastrService,
-    private projectService: AcademicService,
+    private academicService: AcademicService,
     private formBuilder: FormBuilder,
     private router: Router) { }
 
@@ -32,20 +32,20 @@ export class ManageAcademicUpdateComponent implements OnInit {
   saveProject(): void {
     this.isSaving = true;
     if (!this.manageAcademicForm.get(['id']).value) {
-      this.projectService.createProject(this.manageAcademicForm.getRawValue()).then(data => {
+      this.academicService.createAcademic(this.manageAcademicForm.getRawValue()).then(data => {
           this.isSaving = false;
           this.toastr.success('New Project successfully created', 'Success');
-          this.router.navigate(['/manageAcademicStudies']);
+          this.router.navigate(['/manageacademicstudies']);
         },
         err => {
           this.isSaving = false;
           this.toastr.error('An error occurred while saving a new project', 'Error');
         });
     } else {
-      this.projectService.updateProject(this.manageAcademicForm.getRawValue()).then(() => {
+      this.academicService.updateAcademic(this.manageAcademicForm.getRawValue()).then(() => {
           this.isSaving = false;
           this.toastr.success('Project successfully updated', 'Success');
-          this.router.navigate(['/manageAcademicStudies']);
+          this.router.navigate(['/manageacademicstudies']);
         },
         err => {
           this.isSaving = false;
@@ -100,30 +100,12 @@ export class ManageAcademicUpdateComponent implements OnInit {
     this.manageAcademicForm.patchValue({
       id: academic.id,
       educationalInstitution: academic.educationalInstitution,
-      projectAlias: academic.formation,
-      companyName: academic.fieldOfStudy,
-      companyAddress: academic.startDate,
-      state: academic.endDate,
-      city: academic.grade,
-      zip: academic.activities
+      formation: academic.formation,
+      fieldOfStudy: academic.fieldOfStudy,
+      startDate: academic.startDate,
+      endDate: academic.endDate,
+      grade: academic.grade,
+      activities: academic.activities
     });
-    this.createProjectTeamMemberFormArray(academic)
-      .forEach(g => (this.manageAcademicForm.get('academicTeamMembers') as FormArray).push(g));
-  }
-
-  private createProjectTeamMemberFormArray(academic: Academic): FormGroup[] {
-    const fg: FormGroup[] = [];
-    if (!academic.academicTeamMembers) {
-      academic.academicTeamMembers = [];
-    }
-    academic.academicTeamMembers.forEach(projectTeamMember => {
-      fg.push(this.formBuilder.group({
-          id: new FormControl(projectTeamMember.id),
-          startDate: new FormControl(projectTeamMember.startDate, [Validators.required]),
-          endDate: new FormControl(projectTeamMember.endDate)
-        })
-      );
-    });
-    return fg;
   }
 }

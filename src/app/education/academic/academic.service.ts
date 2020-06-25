@@ -28,11 +28,17 @@ export class AcademicService {
         }));
   }
 
-  public async createProject(project: IProject): Promise<void> {
-    const currentUser = firebase.auth().currentUser;
-    project.id = this.af.createId();
-    project.projectTeamMembers.forEach(ptm => ptm.id = this.af.createId());
-    return await this.af.collection(AcademicService.ACADEMIC_KEY).doc(project.id).set(project);
+  public getAcademicByType(personnelAcademic: boolean): Observable<Array<IAcademic>> {
+    return this.angularAuth.user
+      .pipe(takeUntil(this.unsubscribe),
+        switchMap(user => {
+          return this.af.collection<IAcademic>(AcademicService.ACADEMIC_KEY,
+            ref => ref.where('personnelProject', '==', personnelAcademic)).valueChanges();
+        }));
+  }
+
+  public getProjectById(academicId: string): Observable<IAcademic> {
+    return this.af.collection<IAcademic>(AcademicService.ACADEMIC_KEY).doc(academicId).valueChanges();
   }
 
   public getAcademicById(academicId: string): Observable<IAcademic> {
@@ -42,16 +48,13 @@ export class AcademicService {
   public async createAcademic(academic: IAcademic): Promise<void> {
     const currentUser = firebase.auth().currentUser;
     academic.id = this.af.createId();
-    return await this.af.collection(AcademicService.ACADEMIC_KEY).doc(academic.id).set(academic);
-  }
-  public async updateProject(academic: IAcademic): Promise<void> {
-    const currentUser = firebase.auth().currentUser;
-    academic.academicTeamMembers.filter(ptm => !ptm.id).forEach(ptmFiltered => ptmFiltered.id = this.af.createId());
+    academic.academicTeamMembers.forEach(ptm => ptm.id = this.af.createId());
     return await this.af.collection(AcademicService.ACADEMIC_KEY).doc(academic.id).set(academic);
   }
 
   public async updateAcademic(academic: IAcademic): Promise<void> {
     const currentUser = firebase.auth().currentUser;
+    academic.academicTeamMembers.filter(ptm => !ptm.id).forEach(ptmFiltered => ptmFiltered.id = this.af.createId());
     return await this.af.collection(AcademicService.ACADEMIC_KEY).doc(academic.id).set(academic);
   }
 
@@ -59,4 +62,5 @@ export class AcademicService {
     const currentUser = firebase.auth().currentUser;
     return await this.af.collection(AcademicService.ACADEMIC_KEY).doc(academicId).delete();
   }
+
 }
