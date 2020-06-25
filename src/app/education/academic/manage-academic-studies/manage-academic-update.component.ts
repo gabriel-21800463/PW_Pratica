@@ -105,7 +105,8 @@ export class ManageAcademicUpdateComponent implements OnInit {
       startDate: academic.startDate,
       endDate: academic.endDate,
       grade: academic.grade,
-      activities: academic.activities
+      activities: academic.activities,
+      description: academic.description
     });
   }
 }

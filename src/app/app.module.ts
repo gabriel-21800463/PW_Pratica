@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { FooterComponent } from './layouts/footer/footer.component';
 import { MainComponent } from './layouts/main/main.component';
