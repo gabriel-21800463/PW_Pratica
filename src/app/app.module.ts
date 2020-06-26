@@ -23,6 +23,7 @@ import { ManageCertificationsDetailComponent } from './education/certifications/
 import { CourseComponent } from './unviversity/course/course.component';
 import {UnviversityModule} from './unviversity/unviversity.module';
 import {ContactsModule} from './contacts/contacts.module';
+import {ProfileModule} from "./profile/profile.module";
 
 
 
@@ -57,6 +58,7 @@ export const firebaseConfig = {
     EducationModule,
     UnviversityModule,
     ContactsModule,
+    ProfileModule,
     ToastrModule.forRoot({
       positionClass: 'toast-top-right',
       preventDuplicates: true
