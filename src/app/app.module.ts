@@ -17,6 +17,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { ManageCertificationsUpdateComponent } from './education/certifications/manage-certifications/manage-certifications-update.component';
 
 
 
@@ -35,7 +36,8 @@ export const firebaseConfig = {
   declarations: [
     FooterComponent,
     MainComponent,
-    NavbarComponent
+    NavbarComponent,
+    ManageCertificationsUpdateComponent
   ],
   imports: [
     BrowserModule,

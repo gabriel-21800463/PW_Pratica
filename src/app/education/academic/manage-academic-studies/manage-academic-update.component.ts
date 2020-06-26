@@ -58,18 +58,6 @@ export class ManageAcademicUpdateComponent implements OnInit {
     window.history.back();
   }
 
-  addProjectTeamMember(): void {
-    (this.manageAcademicForm.get(['academicTeamMembers']) as FormArray).push(this.createProjectTeamMemberFormGroup());
-  }
-
-  deleteProjectTeamMember(index: number): void {
-    (this.manageAcademicForm.get(['academicTeamMembers']) as FormArray).removeAt(index);
-  }
-
-  get academicTeamMembersControls(): Array<AbstractControl> {
-    return (this.manageAcademicForm.get('academicTeamMembers') as FormArray).controls;
-  }
-
   private createForm() {
     this.manageAcademicForm = new FormGroup({
       id: new FormControl(''),
@@ -81,18 +69,7 @@ export class ManageAcademicUpdateComponent implements OnInit {
       description: new FormControl('', [Validators.required, Validators.maxLength(350)]),
       startDate: new FormControl('', [Validators.required]),
       endDate: new FormControl('', [Validators.required]),
-      formRecaptcha: new FormControl(null, [Validators.required]),
-      academicTeamMembers: this.formBuilder.array([]),
-    });
-  }
-
-  private createProjectTeamMemberFormGroup(): FormGroup {
-    return new FormGroup({
-      id: new FormControl(''),
-      memberSpecialization: new FormControl('', [Validators.required, Validators.maxLength(50)]),
-      memberName: new FormControl('', [Validators.required, Validators.maxLength(250)]),
-      startDate: new FormControl('', [Validators.required]),
-      endDate: new FormControl('')
+      formRecaptcha: new FormControl(null, [Validators.required])
     });
   }
 

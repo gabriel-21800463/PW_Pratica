@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { IAcademic } from '../academic.model';
 import { AcademicService } from '../academic.service';
 import { NgxSpinnerService } from 'ngx-spinner';
-import {ManageProjectsDeleteDialogComponent} from '../../../project/manage-projects/manage-projects-delete-dialog.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {ManageAcademicDeleteDialogComponent} from "./manage-academic-delete-dialog.component";
+import {ManageAcademicDeleteDialogComponent} from './manage-academic-delete-dialog.component';
 
 
 @Component({

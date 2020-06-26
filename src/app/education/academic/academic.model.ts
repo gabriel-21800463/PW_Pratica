@@ -8,7 +8,6 @@ export interface IAcademic {
   grade?: string;
   activities?: string;
   description?: string;
-  academicTeamMembers?: IAcademicTeamMember[]; // teste
 }
 
 export class Academic implements IAcademic {
@@ -22,20 +21,5 @@ export class Academic implements IAcademic {
     public grade?: string,
     public activities?: string,
     public description?: string,
-    public academicTeamMembers?: IAcademicTeamMember[]
-  ) {}
-}
-
-export interface IAcademicTeamMember {
-  id?: string;
-  startDate?: string;
-  endDate?: string;
-}
-
-export class AcademicTeamMember implements IAcademicTeamMember {
-  constructor(
-    public id?: string,
-    public startDate?: string,
-    public endDate?: string
   ) {}
 }

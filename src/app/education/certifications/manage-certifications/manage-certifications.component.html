@@ -7,4 +7,72 @@
       <span>Create a Certifications</span>
     </button>
   </h2>
+
+  <hr>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="certifications?.length === 0">
+    <span>No projects found</span>
+  </div>
+
+  <div class="row" >
+    <div class="col-md-4 mt-3" *ngFor="let certification of certifications; let i = index">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ certification.certName}} - {{ certification.issuingOrg }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Certification code: {{ certification.certCode }}</h6>
+          <p class="card-text">Date: {{ certification.issuingDate }}, {{ certification.expireDate }}.</p>
+          <p class="card-text">Certification Url: {{ certification.certUrl}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="table-responsive" id="projectsTable" *ngIf="certifications?.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col" ><span>ID</span></th>
+        <th scope="col" ><span>Educational Institution </span></th>
+        <th scope="col" ><span>Formation</span></th>
+        <th scope="col" ><span>Start Date</span></th>
+        <th scope="col" ><span>End Date</span></th>
+        <th scope="col" >Grade</th>
+        <th scope="col"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let certification of certifications ;trackBy: trackId">
+        <td><a [routerLink]="[certification.id, 'view']">{{ certification.id }}</a></td>
+        <td>{{ certification.certName }}</td>
+        <td>{{ certification.issuingOrg }}</td>
+        <td>{{ certification.issuingDate }}</td>
+        <td>{{ certification.expireDate }}</td>
+        <td>{{ certification.certCode}}</td>
+        <td class="text-right">
+          <div class="btn-group">
+            <button type="submit" [routerLink]="[certification.id, 'view']" class="btn btn-info btn-sm">
+              <i class="fa fa-eye"></i>
+              <span class="d-none d-md-inline">View</span>
+            </button>
+
+            <button type="submit" [routerLink]="[certification.id, 'edit']" class="btn btn-primary btn-sm">
+              <i class="fa fa-pencil"></i>
+              <span class="d-none d-md-inline">Edit</span>
+            </button>
+
+            <button type="submit" class="btn btn-danger btn-sm">
+              <i class="fa fa-times"></i>
+              <span class="d-none d-md-inline">Delete</span>
+            </button>
+
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+
 </div>

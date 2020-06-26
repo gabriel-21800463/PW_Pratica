@@ -2,11 +2,11 @@ export interface ICertification {
   id?: string;
   certName?: string;
   issuingOrg?: string;
-  expires?: boolean;
+  expires?: string;
   issuingDate?: string;
   expireDate?: string;
   certCode?: string;
-  certUrl?: string
+  certUrl?: string;
 }
 
 export class Certification implements ICertification {
@@ -14,7 +14,7 @@ export class Certification implements ICertification {
     public id?: string,
     public certName?: string,
     public issuingOrg?: string,
-    public expires?: boolean,
+    public expires?: string,
     public issuingDate?: string,
     public expireDate?: string,
     public certCode?: string,
