@@ -17,8 +17,13 @@ const appRoutes: Routes = [
     path: 'university',
     loadChildren: './unviversity/unviversity.module#UnviversityModule'
   },
+  {
+    path: 'contacts',
+    loadChildren: './contacts/contacts.module#ContactsModule'
+  },
   ...LAYOUT_ROUTES,
-  { path: 'customers', loadChildren: () => import('./unviversity/unviversity.module').then(m => m.UnviversityModule) }
+  { path: 'customers', loadChildren: () => import('./unviversity/unviversity.module').then(m => m.UnviversityModule) },
+  { path: 'customers', loadChildren: () => import('./contacts/contacts.module').then(m => m.ContactsModule) }
 ];
 
 
