@@ -13,7 +13,12 @@ const appRoutes: Routes = [
     path: 'education',
     loadChildren: './education/education.module#EducationModule'
   },
-  ...LAYOUT_ROUTES
+  {
+    path: 'university',
+    loadChildren: './unviversity/unviversity.module#UnviversityModule'
+  },
+  ...LAYOUT_ROUTES,
+  { path: 'customers', loadChildren: () => import('./unviversity/unviversity.module').then(m => m.UnviversityModule) }
 ];
 
 

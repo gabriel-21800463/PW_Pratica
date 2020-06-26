@@ -6,8 +6,8 @@ import {ManageAcademicUpdateComponent} from './academic/manage-academic-studies/
 import {ManageAcademicDetailComponent} from './academic/manage-academic-studies/manage-academic-detail.component';
 import {AcademicResolver} from './academic/academic.resolver';
 import {CertificationResolver} from './certifications/certification.resolver';
-import {ManageCertificationsUpdateComponent} from "./certifications/manage-certifications/manage-certifications-update.component";
-import {ManageCertificationsDetailComponent} from "./certifications/manage-certifications/manage-certifications-detail.component";
+import {ManageCertificationsUpdateComponent} from './certifications/manage-certifications/manage-certifications-update.component';
+import {ManageCertificationsDetailComponent} from './certifications/manage-certifications/manage-certifications-detail.component';
 
 const routes: Routes = [
   {

@@ -20,6 +20,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { ManageCertificationsUpdateComponent } from './education/certifications/manage-certifications/manage-certifications-update.component';
 import { ManageCertificationsDeleteDialogComponent } from './education/certifications/manage-certifications/manage-certifications-delete-dialog.component';
 import { ManageCertificationsDetailComponent } from './education/certifications/manage-certifications/manage-certifications-detail.component';
+import { CourseComponent } from './unviversity/course/course.component';
+import {UnviversityModule} from './unviversity/unviversity.module';
 
 
 
@@ -41,7 +43,8 @@ export const firebaseConfig = {
     NavbarComponent,
     ManageCertificationsUpdateComponent,
     ManageCertificationsDeleteDialogComponent,
-    ManageCertificationsDetailComponent
+    ManageCertificationsDetailComponent,
+    CourseComponent
   ],
   imports: [
     BrowserModule,
@@ -51,6 +54,7 @@ export const firebaseConfig = {
     HomeModule,
     ProjectModule,
     EducationModule,
+    UnviversityModule,
     ToastrModule.forRoot({
       positionClass: 'toast-top-right',
       preventDuplicates: true
@@ -60,7 +64,7 @@ export const firebaseConfig = {
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireDatabaseModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
   ],
   providers: [],
   bootstrap: [MainComponent]
