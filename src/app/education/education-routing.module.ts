@@ -7,6 +7,7 @@ import {ManageAcademicDetailComponent} from './academic/manage-academic-studies/
 import {AcademicResolver} from './academic/academic.resolver';
 import {CertificationResolver} from './certifications/certification.resolver';
 import {ManageCertificationsUpdateComponent} from "./certifications/manage-certifications/manage-certifications-update.component";
+import {ManageCertificationsDetailComponent} from "./certifications/manage-certifications/manage-certifications-detail.component";
 
 const routes: Routes = [
   {
@@ -40,6 +41,20 @@ const routes: Routes = [
       {
         path: 'maangecertifications',
         component: ManageCertificationsComponent
+      },
+      {
+        path: 'maangecertifications/:id/view',
+        component: ManageCertificationsDetailComponent,
+        resolve: {
+          certification: CertificationResolver
+        }
+      },
+      {
+        path: 'maangecertifications/:id/edit',
+        component: ManageCertificationsUpdateComponent,
+        resolve: {
+          certification: CertificationResolver
+        }
       },
       {
         path: 'maangecertifications/new',

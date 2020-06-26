@@ -12,7 +12,7 @@ import { AcademicService } from '../academic.service';
 export class ManageAcademicDeleteDialogComponent implements OnInit {
   academic?: IAcademic;
 
-  constructor(public activeModal: NgbActiveModal, private toastr: ToastrService, private projectService: AcademicService) { }
+  constructor(public activeModal: NgbActiveModal, private toastr: ToastrService, private academicService: AcademicService) { }
 
   ngOnInit(): void {
   }
@@ -22,7 +22,7 @@ export class ManageAcademicDeleteDialogComponent implements OnInit {
   }
 
   confirmDelete(id: string): void {
-    this.projectService.deleteAcademic(id).then(() => {
+    this.academicService.deleteAcademic(id).then(() => {
         this.activeModal.close();
         this.toastr.success('Project successfully deleted', 'Suceess');
       },

@@ -3,7 +3,7 @@ import { ICertification } from '../certification.model';
 import { CertificationService } from '../certification.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-// import {ManageCertificationDeleteDialogComponent} from './manage-certification-delete-dialog.component';
+import {ManageCertificationsDeleteDialogComponent} from './manage-certifications-delete-dialog.component';
 
 @Component({
   selector: 'app-manage-certifications',
@@ -30,10 +30,10 @@ export class ManageCertificationsComponent implements OnInit {
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
     return Number(item.id);
   }
-/*
-  delete(academic: ICertification): void {
-    const modalRef = this.modalService.open(ManageCertificationDeleteDialogComponent, { size: 'lg', backdrop: 'static' });
-    modalRef.componentInstance.academic = academic;
+
+  delete(certification: ICertification): void {
+    const modalRef = this.modalService.open(ManageCertificationsDeleteDialogComponent, { size: 'lg', backdrop: 'static' });
+    modalRef.componentInstance.certification = certification;
   }
-*/
+
 }

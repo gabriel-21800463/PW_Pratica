@@ -66,7 +66,7 @@ export class ManageCertificationsUpdateComponent implements OnInit {
       certName: new FormControl('', [Validators.required, Validators.maxLength(50)]),
       issuingOrg: new FormControl('', [Validators.required, Validators.maxLength(50)]),
       certCode: new FormControl('', [Validators.required, Validators.maxLength(100)]),
-      certUrl: new FormControl('', [Validators.required]),
+      certUrl: new FormControl(''),
       expires: new FormControl('', [Validators.required]),
       issuingDate: new FormControl('', [Validators.required]),
       expireDate: new FormControl('', [Validators.required]),

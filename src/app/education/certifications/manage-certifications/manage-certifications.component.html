@@ -21,7 +21,7 @@
           <h5 class="card-title">{{ certification.certName}} - {{ certification.issuingOrg }}</h5>
           <h6 class="card-subtitle mb-2 text-muted">Certification code: {{ certification.certCode }}</h6>
           <p class="card-text">Date: {{ certification.issuingDate }}, {{ certification.expireDate }}.</p>
-          <p class="card-text">Certification Url: {{ certification.certUrl}}</p>
+          <p class="card-text">Certification expires: {{ certification.expires}}</p>
         </div>
       </div>
     </div>
@@ -34,11 +34,11 @@
       <thead class="thead-dark">
       <tr>
         <th scope="col" ><span>ID</span></th>
-        <th scope="col" ><span>Educational Institution </span></th>
-        <th scope="col" ><span>Formation</span></th>
-        <th scope="col" ><span>Start Date</span></th>
-        <th scope="col" ><span>End Date</span></th>
-        <th scope="col" >Grade</th>
+        <th scope="col" ><span>Certification Name</span></th>
+        <th scope="col" ><span>Issuing organization</span></th>
+        <th scope="col" ><span>Issuing Date</span></th>
+        <th scope="col" ><span>Expire</span></th>
+        <th scope="col" >Certification Code</th>
         <th scope="col"></th>
       </tr>
       </thead>
@@ -62,7 +62,7 @@
               <span class="d-none d-md-inline">Edit</span>
             </button>
 
-            <button type="submit" class="btn btn-danger btn-sm">
+            <button type="submit" (click)="delete(certification)" class="btn btn-danger btn-sm">
               <i class="fa fa-times"></i>
               <span class="d-none d-md-inline">Delete</span>
             </button>

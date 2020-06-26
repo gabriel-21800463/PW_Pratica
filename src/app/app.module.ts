@@ -18,6 +18,8 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ManageCertificationsUpdateComponent } from './education/certifications/manage-certifications/manage-certifications-update.component';
+import { ManageCertificationsDeleteDialogComponent } from './education/certifications/manage-certifications/manage-certifications-delete-dialog.component';
+import { ManageCertificationsDetailComponent } from './education/certifications/manage-certifications/manage-certifications-detail.component';
 
 
 
@@ -37,7 +39,9 @@ export const firebaseConfig = {
     FooterComponent,
     MainComponent,
     NavbarComponent,
-    ManageCertificationsUpdateComponent
+    ManageCertificationsUpdateComponent,
+    ManageCertificationsDeleteDialogComponent,
+    ManageCertificationsDetailComponent
   ],
   imports: [
     BrowserModule,

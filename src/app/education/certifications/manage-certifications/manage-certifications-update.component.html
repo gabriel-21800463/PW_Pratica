@@ -65,7 +65,6 @@
                 formControlName="expires">
           <option>Yes</option>
           <option>No</option>
-          <option>I do know</option>
         </select>
         <div class="invalid-feedback" *ngIf="manageCertificationForm.get('expires').invalid && (manageCertificationForm.get('expires').dirty || manageCertificationForm.get('expires').touched)">
           <span *ngIf="manageCertificationForm.controls['expires'].hasError('required')">This field is required</span>
