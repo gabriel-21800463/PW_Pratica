@@ -30,12 +30,12 @@ export class ManageCertificationsUpdateComponent implements OnInit {
     });
   }
 
-  saveProject(): void {
+  saveCertification(): void {
     this.isSaving = true;
     if (!this.manageCertificationForm.get(['id']).value) {
       this.certificationService.createCertification(this.manageCertificationForm.getRawValue()).then(data => {
           this.isSaving = false;
-          this.toastr.success('New Project successfully created', 'Success');
+          this.toastr.success('New Certification successfully created', 'Success');
           this.router.navigate(['/maangecertifications']);
         },
         err => {
@@ -45,7 +45,7 @@ export class ManageCertificationsUpdateComponent implements OnInit {
     } else {
       this.certificationService.updateCertification(this.manageCertificationForm.getRawValue()).then(() => {
           this.isSaving = false;
-          this.toastr.success('Project successfully updated', 'Success');
+          this.toastr.success('Certification successfully updated', 'Success');
           this.router.navigate(['/maangecertifications']);
         },
         err => {
