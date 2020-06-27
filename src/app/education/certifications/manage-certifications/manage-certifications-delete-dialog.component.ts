@@ -25,10 +25,10 @@ export class ManageCertificationsDeleteDialogComponent implements OnInit {
   confirmDelete(id: string): void {
     this.certificationService.deleteCertification(id).then(() => {
         this.activeModal.close();
-        this.toastr.success('Project successfully deleted', 'Suceess');
+        this.toastr.success('Certification successfully deleted', 'Suceess');
       },
       err => {
-        this.toastr.error('An error occurred while deleting project with ID: ' + id , 'Error');
+        this.toastr.error('An error occurred while deleting certification with ID: ' + id , 'Error');
       });
   }
 
