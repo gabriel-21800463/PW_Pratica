@@ -12,23 +12,23 @@ const routes: Routes = [
     path: '',
     children: [
       {
-        path: 'universitycourse',
+        path: 'course',
         component: CourseComponent
       },
       {
-        path: 'universityteacher',
+        path: 'teacher',
         component: TeacherComponent
       },
       {
-        path: 'universitysubject',
+        path: 'subject',
         component: SubjectComponent
       },
       {
-        path: 'universitynotas',
+        path: 'notas',
         component: NotasComponent
       },
       {
-        path: 'universityextramiles',
+        path: 'extramiles',
         component: ExtramilesComponent
       },
       ]
