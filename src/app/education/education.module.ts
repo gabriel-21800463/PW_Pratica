@@ -8,9 +8,6 @@ import { ManageAcademicUpdateComponent } from './academic/manage-academic-studie
 import { ManageAcademicDeleteDialogComponent } from './academic/manage-academic-studies/manage-academic-delete-dialog.component';
 import { ManageAcademicDetailComponent } from './academic/manage-academic-studies/manage-academic-detail.component';
 
-
-
-
 @NgModule({
   declarations: [
     ManageAcademicStudiesComponent,

@@ -7,7 +7,7 @@ import {IAcademic} from '../../../education/academic/academic.model';
 
 import {AcademicService} from '../../../education/academic/academic.service';
 import {NgxSpinnerService} from 'ngx-spinner';
-// tslint:disable-next-line:max-line-length
+
 import {ManageAcademicDeleteDialogComponent} from '../../../education/academic/manage-academic-studies/manage-academic-delete-dialog.component';
 
 @Component({
@@ -31,14 +31,13 @@ export class CourseComponent implements OnInit {
     });
   }
 
-  trackId(index: number, item: IAcademic): number {
+  trackId(index: number, item: ICourse): number {
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
     return Number(item.id);
   }
 
-  delete(academic: IAcademic): void {
-    const modalRef = this.modalService.open(ManageAcademicDeleteDialogComponent, { size: 'lg', backdrop: 'static' });
-    modalRef.componentInstance.academic = academic;
+  delete(course: ICourse): void {
+
   }
 
 

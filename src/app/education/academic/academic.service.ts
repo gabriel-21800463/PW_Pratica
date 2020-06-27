@@ -6,7 +6,6 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { IAcademic } from './academic.model';
 import * as firebase from 'firebase';
-import {IProject} from '../../project/project.model';
 
 @Injectable({
   providedIn: 'root'
