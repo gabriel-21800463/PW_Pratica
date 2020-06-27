@@ -1,1 +1,51 @@
-<p>course-detail works!</p>
+<div class="row justify-content-center panel-container">
+  <div class="col-8">
+    <div *ngIf="course">
+      <h2><span>Academic Studies</span></h2>
+      <hr>
+      <dl class="row-md entity-details">
+        <dt><span >ID</span></dt>
+        <dd>
+          <span>{{ course.id }}</span>
+        </dd>
+        <dt><span >Educational Institution</span></dt>
+        <dd>
+          <span>{{ course.educationalInstitution }}</span>
+        </dd>
+        <dt><span >Formation</span></dt>
+        <dd>
+          <span>{{ course.formation }}</span>
+        </dd>
+        <dt><span >Field Of Study</span></dt>
+        <dd>
+          <span>{{ course.fieldOfStudy }}</span>
+        </dd>
+        <dt><span>Grade</span></dt>
+        <dd>
+          <span>{{ course.grade }}</span>
+        </dd>
+        <dt><span>Activities</span></dt>
+        <dd>
+          <span>{{ course.activities }}</span>
+        </dd>
+        <dt><span>Start Date</span></dt>
+        <dd>
+          <span>{{ course.startDate }}</span>
+        </dd>
+        <dt><span>End Date</span></dt>
+        <dd>
+          <span>{{ course.endDate }}</span>
+        </dd>
+        <dt><span>Description</span></dt>
+        <dd>
+          <span>{{ course.description }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info margin-right-10">
+        <i class="fa fa-arrow-left"></i><span>Back</span>
+      </button>
+
+    </div>
+  </div>
+</div>

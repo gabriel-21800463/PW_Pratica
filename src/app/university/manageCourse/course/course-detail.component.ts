@@ -1,15 +1,26 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ICourse } from '../course.model';
 
 @Component({
   selector: 'app-course-detail',
   templateUrl: './course-detail.component.html',
   styleUrls: ['./course-detail.component.scss']
 })
+
 export class CourseDetailComponent implements OnInit {
 
-  constructor() { }
+  course: ICourse | null = null;
+
+  constructor(protected activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.activatedRoute.data.subscribe(({ course }) => {
+      this.course = course;
+    });
   }
 
+  previousState(): void {
+    window.history.back();
+  }
 }

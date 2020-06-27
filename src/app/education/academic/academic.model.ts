@@ -1,4 +1,4 @@
-export interface IAcademic {
+export interface ICourse {
   id?: string;
   educationalInstitution?: string;
   formation?: string;
@@ -10,7 +10,7 @@ export interface IAcademic {
   description?: string;
 }
 
-export class Academic implements IAcademic {
+export class Academic implements ICourse {
   constructor(
     public id?: string,
     public educationalInstitution?: string,

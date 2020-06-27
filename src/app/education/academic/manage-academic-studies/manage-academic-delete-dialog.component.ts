@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { IAcademic } from '../academic.model';
+import { ICourse } from '../academic.model';
 import { ToastrService } from 'ngx-toastr';
 import { AcademicService } from '../academic.service';
 
@@ -10,7 +10,7 @@ import { AcademicService } from '../academic.service';
   styleUrls: ['./manage-academic-delete-dialog.component.scss']
 })
 export class ManageAcademicDeleteDialogComponent implements OnInit {
-  academic?: IAcademic;
+  academic?: ICourse;
 
   constructor(public activeModal: NgbActiveModal, private toastr: ToastrService, private academicService: AcademicService) { }
 

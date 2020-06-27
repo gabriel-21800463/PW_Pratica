@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { IAcademic } from '../academic.model';
+import { ICourse } from '../academic.model';
 
 @Component({
   selector: 'app-manage-academic-detail',
@@ -9,7 +9,7 @@ import { IAcademic } from '../academic.model';
 })
 
 export class ManageAcademicDetailComponent implements OnInit {
-  academic: IAcademic | null = null;
+  academic: ICourse | null = null;
 
   constructor(protected activatedRoute: ActivatedRoute) { }
 

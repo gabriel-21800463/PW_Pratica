@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IAcademic} from '../academic.model';
+import { ICourse} from '../academic.model';
 import { AcademicService } from '../academic.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
@@ -14,7 +14,7 @@ import {ManageAcademicDeleteDialogComponent} from './manage-academic-delete-dial
 export class ManageAcademicStudiesComponent implements OnInit {
 
 
-  academics: IAcademic[] | null = null;
+  academics: ICourse[] | null = null;
 
   constructor(protected modalService: NgbModal, private academicService: AcademicService, private spinner: NgxSpinnerService) { }
 
@@ -28,12 +28,12 @@ export class ManageAcademicStudiesComponent implements OnInit {
     });
   }
 
-  trackId(index: number, item: IAcademic): number {
+  trackId(index: number, item: ICourse): number {
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
     return Number(item.id);
   }
 
-  delete(academic: IAcademic): void {
+  delete(academic: ICourse): void {
     const modalRef = this.modalService.open(ManageAcademicDeleteDialogComponent, { size: 'lg', backdrop: 'static' });
     modalRef.componentInstance.academic = academic;
   }

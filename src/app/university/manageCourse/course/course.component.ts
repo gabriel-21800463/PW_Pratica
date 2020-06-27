@@ -2,13 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { ICourse} from '../course.model';
 import {CourseService} from '../course.service';
-
-import {IAcademic} from '../../../education/academic/academic.model';
-
-import {AcademicService} from '../../../education/academic/academic.service';
 import {NgxSpinnerService} from 'ngx-spinner';
-
-import {ManageAcademicDeleteDialogComponent} from '../../../education/academic/manage-academic-studies/manage-academic-delete-dialog.component';
+import {CourseDeleteDialogComponent} from './course-delete-dialog.component';
 
 @Component({
   selector: 'app-course',
@@ -37,7 +32,8 @@ export class CourseComponent implements OnInit {
   }
 
   delete(course: ICourse): void {
-
+    const modalRef = this.modalService.open(CourseDeleteDialogComponent, { size: 'lg', backdrop: 'static' });
+    modalRef.componentInstance.course = course;
   }
 
 

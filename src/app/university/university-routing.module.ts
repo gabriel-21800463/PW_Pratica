@@ -6,9 +6,8 @@ import {SubjectComponent} from './manageSubject/subject/subject.component';
 import {TeacherComponent} from './manageTeacher/teacher/teacher.component';
 import {ExtramilesComponent} from './extramiles/extramiles.component';
 import {CourseUpdateComponent} from './manageCourse/course/course-update.component';
-import {ManageAcademicUpdateComponent} from "../education/academic/manage-academic-studies/manage-academic-update.component";
-import {AcademicResolver} from "../education/academic/academic.resolver";
-
+import {CourseResolver} from './manageCourse/course.resolver';
+import {CourseDetailComponent} from './manageCourse/course/course-detail.component';
 
 const routes: Routes = [
   {
@@ -38,7 +37,21 @@ const routes: Routes = [
         path: 'course/new',
         component: CourseUpdateComponent,
         resolve: {
-          course: AcademicResolver
+          course: CourseResolver
+        }
+      },
+      {
+        path: 'course/:id/view',
+        component: CourseDetailComponent,
+        resolve: {
+          course: CourseResolver
+        }
+      },
+      {
+        path: 'course/:id/edit',
+        component: CourseUpdateComponent,
+        resolve: {
+          course: CourseResolver
         }
       },
       ]
