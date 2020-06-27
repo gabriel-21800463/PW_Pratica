@@ -20,7 +20,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { ManageCertificationsUpdateComponent } from './education/certifications/manage-certifications/manage-certifications-update.component';
 import { ManageCertificationsDeleteDialogComponent } from './education/certifications/manage-certifications/manage-certifications-delete-dialog.component';
 import { ManageCertificationsDetailComponent } from './education/certifications/manage-certifications/manage-certifications-detail.component';
-import { CourseComponent } from './university/course/course.component';
+import { CourseComponent } from './university/manageCourse/course/course.component';
 import {UniversityModule} from './university/university.module';
 import {ContactsModule} from './contacts/contacts.module';
 import {ProfileModule} from './profile/profile.module';
