@@ -6,9 +6,10 @@ import { TeacherComponent } from './teacher/teacher.component';
 import { SubjectComponent } from './subject/subject.component';
 import { NotasComponent } from './notas/notas.component';
 import { ExtramilesComponent } from './extramiles/extramiles.component';
+import { CourseUpdateComponent } from './course/course-update.component';
 
 @NgModule({
-  declarations: [TeacherComponent, SubjectComponent, NotasComponent, ExtramilesComponent],
+  declarations: [TeacherComponent, SubjectComponent, NotasComponent, ExtramilesComponent, CourseUpdateComponent],
   imports: [
     CommonModule,
     UniversityRoutingModule
