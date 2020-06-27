@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IAcademic } from '../academic.model';
+import { IAcademic} from '../academic.model';
 import { AcademicService } from '../academic.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';

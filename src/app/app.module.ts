@@ -20,11 +20,10 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { ManageCertificationsUpdateComponent } from './education/certifications/manage-certifications/manage-certifications-update.component';
 import { ManageCertificationsDeleteDialogComponent } from './education/certifications/manage-certifications/manage-certifications-delete-dialog.component';
 import { ManageCertificationsDetailComponent } from './education/certifications/manage-certifications/manage-certifications-detail.component';
-import { CourseComponent } from './unviversity/course/course.component';
-import {UnviversityModule} from './unviversity/unviversity.module';
+import { CourseComponent } from './university/course/course.component';
+import {UniversityModule} from './university/university.module';
 import {ContactsModule} from './contacts/contacts.module';
-import {ProfileModule} from "./profile/profile.module";
-
+import {ProfileModule} from './profile/profile.module';
 
 
 export const firebaseConfig = {
@@ -56,7 +55,7 @@ export const firebaseConfig = {
     HomeModule,
     ProjectModule,
     EducationModule,
-    UnviversityModule,
+    UniversityModule,
     ContactsModule,
     ProfileModule,
     ToastrModule.forRoot({

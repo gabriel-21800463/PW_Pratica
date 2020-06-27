@@ -1,0 +1,25 @@
+export interface ICourse {
+  id?: string;
+  educationalInstitution?: string;
+  formation?: string;
+  fieldOfStudy?: string;
+  startDate?: string;
+  endDate?: string;
+  grade?: string;
+  activities?: string;
+  description?: string;
+}
+
+export class Course implements ICourse {
+  constructor(
+    public id?: string,
+    public educationalInstitution?: string,
+    public formation?: string,
+    public fieldOfStudy?: string,
+    public startDate?: string,
+    public endDate?: string,
+    public grade?: string,
+    public activities?: string,
+    public description?: string,
+  ) {}
+}
