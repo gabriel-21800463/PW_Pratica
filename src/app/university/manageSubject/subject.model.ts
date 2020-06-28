@@ -3,7 +3,7 @@ export interface ISubject {
   nomeAluno?: string;
   disciplina?: string;
   curso?: string;
-  dataIninio?: string;
+  dataInicio?: string;
   dataFinal?: string;
   email?: string;
   turno?: string;
@@ -15,7 +15,7 @@ export class Subject implements ISubject {
     public nomeAluno?: string,
     public dataFinal?: string,
     public curso?: string,
-    public dataIninio?: string,
+    public dataInicio?: string,
     public disciplina?: string,
     public email?: string,
     public turno?: string,

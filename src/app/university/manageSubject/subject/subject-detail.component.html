@@ -1,1 +1,49 @@
-<p>subject-detail works!</p>
+<div class="row justify-content-center panel-container">
+  <div class="col-8">
+    <div *ngIf="subject">
+      <h2><span>Subject</span></h2>
+      <hr>
+      <dl class="row-md entity-details">
+        <dt><span >ID</span></dt>
+        <dd>
+          <span>{{ subject.id }}</span>
+        </dd>
+        <dt><span >Student Name</span></dt>
+        <dd>
+          <span>{{ subject.nomeAluno }}</span>
+        </dd>
+        <dt><span >Discipline</span></dt>
+        <dd>
+          <span>{{ subject.disciplina }}</span>
+        </dd>
+        <dt><span >Course</span></dt>
+        <dd>
+          <span>{{ subject.curso }}</span>
+        </dd>
+        <dt><span>Start Date</span></dt>
+        <dd>
+          <span>{{ subject.dataInicio }}</span>
+        </dd>
+        <dt><span>Final Date</span></dt>
+        <dd>
+          <span>{{ subject.dataFinal }}</span>
+        </dd>
+        <dt><span>Email</span></dt>
+        <dd>
+          <span>{{ subject.email }}</span>
+        </dd>
+        <dt><span>Turn</span></dt>
+        <dd>
+          <span>{{ subject.turno }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info margin-right-10">
+        <i class="fa fa-arrow-left"></i><span>Back</span>
+      </button>
+
+    </div>
+  </div>
+</div>
+
+

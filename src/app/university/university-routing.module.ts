@@ -1,10 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {CourseComponent} from './manageCourse/course/course.component';
-import {NotasComponent} from './manageNotas/notas/notas.component';
 import {SubjectComponent} from './manageSubject/subject/subject.component';
 import {TeacherComponent} from './manageTeacher/teacher/teacher.component';
-import {ExtramilesComponent} from './extramiles/extramiles.component';
 import {CourseUpdateComponent} from './manageCourse/course/course-update.component';
 import {CourseResolver} from './manageCourse/course.resolver';
 import {CourseDetailComponent} from './manageCourse/course/course-detail.component';
@@ -30,14 +28,6 @@ const routes: Routes = [
       {
         path: 'subject',
         component: SubjectComponent
-      },
-      {
-        path: 'notas',
-        component: NotasComponent
-      },
-      {
-        path: 'extramiles',
-        component: ExtramilesComponent
       },
       {
         path: 'course/new',

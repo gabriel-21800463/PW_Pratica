@@ -32,8 +32,8 @@ export class SubjectComponent implements OnInit {
   }
 
   delete(subject: ISubject): void {
-   /* const modalRef = this.modalService.open(SubjectDeleteDialogComponent, { size: 'lg', backdrop: 'static' });
-    modalRef.componentInstance.subject = subject;*/
+    const modalRef = this.modalService.open(SubjectDeleteDialogComponent, { size: 'lg', backdrop: 'static' });
+    modalRef.componentInstance.subject = subject;
   }
 
 

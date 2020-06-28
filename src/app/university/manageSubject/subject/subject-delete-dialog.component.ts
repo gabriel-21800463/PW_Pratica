@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import {ToastrService} from 'ngx-toastr';
+import {ISubject} from '../subject.model';
+import {SubjectService} from '../subject.service';
 
 @Component({
   selector: 'app-subject-delete-dialog',
@@ -7,9 +11,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SubjectDeleteDialogComponent implements OnInit {
 
-  constructor() { }
+  subject?: ISubject;
+
+  constructor(public activeModal: NgbActiveModal, private toastr: ToastrService, private subjectService: SubjectService) { }
 
   ngOnInit(): void {
   }
 
+  clear(): void {
+    this.activeModal.dismiss();
+  }
+
+  confirmDelete(id: string): void {
+    this.subjectService.deleteSubject(id).then(() => {
+        this.activeModal.close();
+        this.toastr.success('Subject successfully deleted', 'Suceess');
+      },
+      err => {
+        this.toastr.error('An error occurred while deleting Subject with ID: ' + id , 'Error');
+      });
+  }
 }

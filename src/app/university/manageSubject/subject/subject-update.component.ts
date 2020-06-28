@@ -78,7 +78,7 @@ export class SubjectUpdateComponent implements OnInit {
       nomeAluno: subject.nomeAluno,
       disciplina: subject.disciplina,
       curso: subject.curso,
-      dataIninio: subject.dataIninio,
+      dataIninio: subject.dataInicio,
       dataFinal: subject.dataFinal,
       email: subject.email,
       turno: subject.turno,
