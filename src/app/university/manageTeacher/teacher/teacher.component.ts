@@ -31,8 +31,8 @@ export class TeacherComponent implements OnInit {
   }
 
   delete(course: ITeacher): void {
-    /*const modalRef = this.modalService.open(TeacherDeleteDialogComponent, { size: 'lg', backdrop: 'static' });
-    modalRef.componentInstance.teacher = course;*/
+    const modalRef = this.modalService.open(TeacherDeleteDialogComponent, { size: 'lg', backdrop: 'static' });
+    modalRef.componentInstance.teacher = course;
   }
 
 

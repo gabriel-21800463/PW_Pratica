@@ -1,1 +1,44 @@
-<p>teacher-detail works!</p>
+<div class="row justify-content-center panel-container">
+  <div class="col-8">
+    <div *ngIf="teacher">
+      <h2><span>Teacher</span></h2>
+      <hr>
+      <dl class="row-md entity-details">
+        <dt><span >ID</span></dt>
+        <dd>
+          <span>{{ teacher.id }}</span>
+        </dd>
+        <dt><span >Teacher Name</span></dt>
+        <dd>
+          <span>{{ teacher.nomeTeacher }}</span>
+        </dd>
+        <dt><span >Course</span></dt>
+        <dd>
+          <span>{{ teacher.curso }}</span>
+        </dd>
+        <dt><span >Degree</span></dt>
+        <dd>
+          <span>{{ teacher.grau }}</span>
+        </dd>
+        <dt><span>Formation Spot</span></dt>
+        <dd>
+          <span>{{ teacher.localFormacao }}</span>
+        </dd>
+        <dt><span>Discipline</span></dt>
+        <dd>
+          <span>{{ teacher.disciplina }}</span>
+        </dd>
+        <dt><span>Turn</span></dt>
+        <dd>
+          <span>{{ teacher.turno }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info margin-right-10">
+        <i class="fa fa-arrow-left"></i><span>Back</span>
+      </button>
+
+    </div>
+  </div>
+</div>
+

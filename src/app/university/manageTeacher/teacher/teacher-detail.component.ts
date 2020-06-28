@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ITeacher} from '../teacher.model';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-teacher-detail',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TeacherDetailComponent implements OnInit {
 
-  constructor() { }
+  teacher: ITeacher | null = null;
+
+  constructor(protected activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.activatedRoute.data.subscribe(({ teacher }) => {
+      this.teacher = teacher;
+    });
   }
 
+  previousState(): void {
+    window.history.back();
+  }
 }

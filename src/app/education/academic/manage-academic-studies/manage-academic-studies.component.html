@@ -17,7 +17,7 @@
       <div class="col-md-4 mt-3" *ngFor="let academic of academics; let i = index">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Education Name: {{ academic.educationalInstitution}}}</h5>
+            <h5 class="card-title">Education Name: {{ academic.educationalInstitution}}</h5>
             <h6 class="card-subtitle mb-2 text-muted">Activities: {{ academic.activities }}</h6>
             <p class="card-text">Date: {{ academic.startDate }}, {{ academic.endDate }}.</p>
             <a class="card-link" [routerLink]="[academic.id, 'view']">View details</a>
