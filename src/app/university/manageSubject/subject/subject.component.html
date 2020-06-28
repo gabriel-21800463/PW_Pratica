@@ -1,1 +1,81 @@
-<p>subject works!</p>
+<div class="panel-container">
+  <h2>
+    <span>Subject</span>
+
+    <button id="create-entity" class="btn btn-primary float-right" [routerLink]="['new']">
+      <i class="fa fa-plus"></i>
+      <span>Create Subject</span>
+    </button>
+  </h2>
+  <hr>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="subjects?.length === 0">
+    <span>No subject found</span>
+  </div>
+
+  <div class="row" >
+    <div class="col-md-4 mt-3" *ngFor="let subject of subjects; let i = index">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Student Name: {{ subject.nomeAluno}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Discipline: {{ subject.disciplina }}</h6>
+          <p class="card-text">Email: {{ subject.email }}</p>
+          <a class="card-link" [routerLink]="[subject.id, 'view']">View details</a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="table-responsive" id="projectsTable" *ngIf="subjects?.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col" ><span>ID</span></th>
+        <th scope="col" ><span>Student Name </span></th>
+        <th scope="col" ><span>Discipline</span></th>
+        <th scope="col" ><span>Course</span></th>
+        <th scope="col" ><span>Start Date</span></th>
+        <th scope="col" ><span>End Date</span></th>
+        <th scope="col" ><span>Email</span></th>
+        <th scope="col" ><span>Turn</span></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let subject of subjects ;trackBy: trackId">
+        <td><a [routerLink]="[subject.id, 'view']">{{ subject.id }}</a></td>
+        <td>{{ subject.nomeAluno }}</td>
+        <td>{{ subject.disciplina }}</td>
+        <td>{{ subject.curso }}</td>
+        <td>{{ subject.dataIninio }}</td>
+        <td>{{ subject.dataFinal }}</td>
+        <td>{{ subject.email }}</td>
+        <td>{{ subject.turno }}</td>
+        <td class="text-right">
+          <div class="btn-group">
+            <button type="submit" [routerLink]="[subject.id, 'view']" class="btn btn-info btn-sm">
+              <i class="fa fa-eye"></i>
+              <span class="d-none d-md-inline">View</span>
+            </button>
+
+            <button type="submit" [routerLink]="[subject.id, 'edit']" class="btn btn-primary btn-sm">
+              <i class="fa fa-pencil"></i>
+              <span class="d-none d-md-inline">Edit</span>
+            </button>
+
+            <button type="submit" (click)="delete(subject)" class="btn btn-danger btn-sm">
+              <i class="fa fa-times"></i>
+              <span class="d-none d-md-inline">Delete</span>
+            </button>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+

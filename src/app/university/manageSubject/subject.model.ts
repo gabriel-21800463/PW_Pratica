@@ -6,6 +6,7 @@ export interface ISubject {
   dataIninio?: string;
   dataFinal?: string;
   email?: string;
+  turno?: string;
 }
 
 export class Subject implements ISubject {
@@ -17,5 +18,6 @@ export class Subject implements ISubject {
     public dataIninio?: string,
     public disciplina?: string,
     public email?: string,
+    public turno?: string,
   ) {}
 }

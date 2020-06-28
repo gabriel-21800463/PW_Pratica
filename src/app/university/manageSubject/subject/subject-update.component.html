@@ -1,1 +1,89 @@
-<p>subject-update works!</p>
+<div class="panel-container">
+  <form [formGroup]="subjectForm" (ngSubmit)="saveSubject()">
+    <div class="form-row">
+      <div class="form-group col-md-6 mb-6">
+        <label for="inputStudentName">Student Name</label>
+        <input type="text" class="form-control" [ngClass]="subjectForm.get('nomeAluno').invalid && (subjectForm.get('nomeAluno').dirty || subjectForm.get('nomeAluno').touched) && subjectForm.controls['nomeAluno'].errors ? 'is-invalid' : ''"
+               id="inputStudentName" placeholder="Student Name" formControlName="nomeAluno">
+        <div class="invalid-feedback" *ngIf="subjectForm.get('nomeAluno').invalid && (subjectForm.get('nomeAluno').dirty || subjectForm.get('nomeAluno').touched)">
+          <span *ngIf="subjectForm.controls['nomeAluno'].hasError('required')">This field is required</span>
+          <span *ngIf="subjectForm.controls['nomeAluno'].hasError('maxlength')">Max length of this field is 50 characters</span>
+        </div>
+      </div>
+      <div class="form-group col-md-6 mb-6">
+        <label for="inputDiscipline">Discipline</label>
+        <input type="text" class="form-control" [ngClass]="subjectForm.get('disciplina').invalid && (subjectForm.get('disciplina').dirty || subjectForm.get('disciplina').touched) && subjectForm.controls['disciplina'].errors ? 'is-invalid' : ''"
+               id="inputDiscipline" placeholder="Discipline" formControlName="disciplina">
+        <div class="invalid-feedback" *ngIf="subjectForm.get('disciplina').invalid && (subjectForm.get('disciplina').dirty || subjectForm.get('disciplina').touched)">
+          <span *ngIf="subjectForm.controls['disciplina'].hasError('required')">This field is required</span>
+          <span *ngIf="subjectForm.controls['disciplina'].hasError('maxlength')">Max length of this field is 50 characters</span>
+        </div>
+      </div>
+
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-3 mb-3">
+        <label for="inputStartDate">Start Date</label>
+        <input  type="date" class="form-control" [ngClass]="subjectForm.get('dataInicio').invalid && (subjectForm.get('dataInicio').dirty || subjectForm.get('dataInicio').touched) && subjectForm.controls['dataInicio'].errors ? 'is-invalid' : ''"
+                id="inputStartDate" placeholder="Start Date" formControlName="dataInicio"/>
+        <div class="invalid-feedback" *ngIf="subjectForm.get('dataInicio').invalid && (subjectForm.get('dataInicio').dirty || subjectForm.get('dataInicio').touched)">
+          <span *ngIf="subjectForm.controls['dataInicio'].hasError('required')">This field is required</span>
+        </div>
+      </div>
+      <div class="form-group col-md-3 mb-3">
+        <label for="inputFinalDate">Final Date</label>
+        <input  type="date" class="form-control" [ngClass]="subjectForm.get('dataFinal').invalid && (subjectForm.get('dataFinal').dirty || subjectForm.get('dataFinal').touched) && subjectForm.controls['dataFinal'].errors ? 'is-invalid' : ''"
+                id="inputFinalDate" placeholder="Final Date" formControlName="dataFinal"/>
+        <div class="invalid-feedback" *ngIf="subjectForm.get('dataFinal').invalid && (subjectForm.get('dataFinal').dirty || subjectForm.get('dataFinal').touched)">
+          <span *ngIf="subjectForm.controls['dataFinal'].hasError('required')">This field is required</span>
+        </div>
+      </div>
+      <div class="form-group col-md-6 mb-6">
+        <label for="inputCourse">Course</label>
+        <select id="inputCourse" class="form-control" [ngClass]="subjectForm.get('curso').invalid && (subjectForm.get('curso').dirty || subjectForm.get('curso').touched) && subjectForm.controls['curso'].errors ? 'is-invalid' : ''"
+                formControlName="curso">
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+        <div class="invalid-feedback" *ngIf="subjectForm.get('curso').invalid && (subjectForm.get('curso').dirty || subjectForm.get('curso').touched)">
+          <span *ngIf="subjectForm.controls['curso'].hasError('required')">This field is required</span>
+        </div>
+      </div>
+      <div class="form-group col-md-6 mb-6">
+        <label for="inputEmail">Email</label>
+        <input type="text" class="form-control" [ngClass]="subjectForm.get('email').invalid && (subjectForm.get('email').dirty || subjectForm.get('email').touched) && subjectForm.controls['email'].errors ? 'is-invalid' : ''"
+               id="inputEmail" placeholder="Email" formControlName="email">
+        <div class="invalid-feedback" *ngIf="subjectForm.get('email').invalid && (subjectForm.get('email').dirty || subjectForm.get('email').touched)">
+          <span *ngIf="subjectForm.controls['email'].hasError('required')">This field is required</span>
+          <span *ngIf="subjectForm.controls['email'].hasError('email')">Invalid Email</span>
+        </div>
+      </div>
+      <div class="form-group col-md-6 mb-6">
+        <label for="inputTurn">Turn</label>
+        <select id="inputTurn" class="form-control" [ngClass]="subjectForm.get('turno').invalid && (subjectForm.get('turno').dirty || subjectForm.get('turno').touched) && subjectForm.controls['turno'].errors ? 'is-invalid' : ''"
+                formControlName="turno">
+          <option>DayTime</option>
+          <option>Nightly</option>
+        </select>
+        <div class="invalid-feedback" *ngIf="subjectForm.get('turno').invalid && (subjectForm.get('turno').dirty || subjectForm.get('turno').touched)">
+          <span *ngIf="subjectForm.controls['turno'].hasError('required')">This field is required</span>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+    <div class="row margin-top-10">
+      <div class="col-12">
+        <re-captcha formControlName="formRecaptcha"></re-captcha>
+      </div>
+    </div>
+    <div class="margin-top-20">
+      <button type="button" id="cancel-save" class="btn btn-secondary margin-right-10" (click)="previousState()">
+        <i class="fa fa-ban"></i><span>Cancel</span>
+      </button>
+      <button type="submit" id="save-entity" [disabled]="subjectForm.invalid || isSaving" class="btn btn-primary">
+        <i class="fa fa-save"></i><span>Save</span>
+      </button>
+    </div>
+  </form>
+</div>

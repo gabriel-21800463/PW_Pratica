@@ -8,9 +8,12 @@ import {ExtramilesComponent} from './extramiles/extramiles.component';
 import {CourseUpdateComponent} from './manageCourse/course/course-update.component';
 import {CourseResolver} from './manageCourse/course.resolver';
 import {CourseDetailComponent} from './manageCourse/course/course-detail.component';
-import {TeacherUpdateComponent} from "./manageTeacher/teacher/teacher-update.component";
-import {TeacherDetailComponent} from "./manageTeacher/teacher/teacher-detail.component";
-import {TeacherResolver} from "./manageTeacher/teacher.resolver";
+import {TeacherUpdateComponent} from './manageTeacher/teacher/teacher-update.component';
+import {TeacherDetailComponent} from './manageTeacher/teacher/teacher-detail.component';
+import {TeacherResolver} from './manageTeacher/teacher.resolver';
+import {SubjectUpdateComponent} from './manageSubject/subject/subject-update.component';
+import {SubjectResolver} from './manageSubject/subject.resolver';
+import {SubjectDetailComponent} from './manageSubject/subject/subject-detail.component';
 
 const routes: Routes = [
   {
@@ -61,7 +64,7 @@ const routes: Routes = [
         path: 'teacher/new',
         component: TeacherUpdateComponent,
         resolve: {
-          course: CourseResolver
+          teacher: TeacherResolver
         }
       },
       {
@@ -76,6 +79,27 @@ const routes: Routes = [
         component: TeacherUpdateComponent,
         resolve: {
           teacher: TeacherResolver
+        }
+      },
+      {
+        path: 'subject/new',
+        component: SubjectUpdateComponent,
+        resolve: {
+          subject: SubjectResolver
+        }
+      },
+      {
+        path: 'subject/:id/view',
+        component: SubjectDetailComponent,
+        resolve: {
+          subject: SubjectResolver
+        }
+      },
+      {
+        path: 'subject/:id/edit',
+        component: SubjectUpdateComponent,
+        resolve: {
+          subject: SubjectResolver
         }
       },
     ]
