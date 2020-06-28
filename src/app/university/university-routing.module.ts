@@ -8,6 +8,9 @@ import {ExtramilesComponent} from './extramiles/extramiles.component';
 import {CourseUpdateComponent} from './manageCourse/course/course-update.component';
 import {CourseResolver} from './manageCourse/course.resolver';
 import {CourseDetailComponent} from './manageCourse/course/course-detail.component';
+import {TeacherUpdateComponent} from "./manageTeacher/teacher/teacher-update.component";
+import {TeacherDetailComponent} from "./manageTeacher/teacher/teacher-detail.component";
+import {TeacherResolver} from "./manageTeacher/teacher.resolver";
 
 const routes: Routes = [
   {
@@ -52,6 +55,27 @@ const routes: Routes = [
         component: CourseUpdateComponent,
         resolve: {
           course: CourseResolver
+        }
+      },
+      {
+        path: 'teacher/new',
+        component: TeacherUpdateComponent,
+        resolve: {
+          course: CourseResolver
+        }
+      },
+      {
+        path: 'teacher/:id/view',
+        component: TeacherDetailComponent,
+        resolve: {
+          teacher: TeacherResolver
+        }
+      },
+      {
+        path: 'teacher/:id/edit',
+        component: TeacherUpdateComponent,
+        resolve: {
+          teacher: TeacherResolver
         }
       },
     ]

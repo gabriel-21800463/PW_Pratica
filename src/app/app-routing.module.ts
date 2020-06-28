@@ -22,7 +22,7 @@ const appRoutes: Routes = [
     loadChildren: './contacts/contacts.module#ContactsModule'
   },
   {
-    path: 'profile',
+    path: 'profiles',
     loadChildren: './profile/profile.module#ProfileModule'
   },
   ...LAYOUT_ROUTES,

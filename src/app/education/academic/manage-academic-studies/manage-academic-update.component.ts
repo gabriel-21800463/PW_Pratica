@@ -29,7 +29,7 @@ export class ManageAcademicUpdateComponent implements OnInit {
     });
   }
 
-  saveProject(): void {
+  saveAcademic(): void {
     this.isSaving = true;
     if (!this.manageAcademicForm.get(['id']).value) {
       this.academicService.createAcademic(this.manageAcademicForm.getRawValue()).then(data => {

@@ -1,1 +1,38 @@
-<p>teacher-update works!</p>
+<div class="panel-container">
+  <form [formGroup]="teacherForm" (ngSubmit)="saveTeacher()">
+    <div class="form-row">
+      <div class="form-group col-md-6 mb-6">
+        <label for="inputTeacherName">Teacher Name</label>
+        <input type="text" class="form-control" [ngClass]="teacherForm.get('nomeTeacher').invalid && (teacherForm.get('nomeTeacher').dirty || teacherForm.get('nomeTeacher').touched) && teacherForm.controls['nomeTeacher'].errors ? 'is-invalid' : ''"
+               id="inputTeacherName" placeholder="Teacher Name" formControlName="nomeTeacher">
+        <div class="invalid-feedback" *ngIf="teacherForm.get('nomeTeacher').invalid && (teacherForm.get('nomeTeacher').dirty || teacherForm.get('nomeTeacher').touched)">
+          <span *ngIf="teacherForm.controls['nomeTeacher'].hasError('required')">This field is required</span>
+          <span *ngIf="teacherForm.controls['nomeTeacher'].hasError('maxlength')">Max length of this field is 50 characters</span>
+        </div>
+      </div>
+      <div class="form-group col-md-6 mb-6">
+        <label for="inputCourse">Course</label>
+        <input type="text" class="form-control" [ngClass]="teacherForm.get('curso').invalid && (teacherForm.get('curso').dirty || teacherForm.get('curso').touched) && teacherForm.controls['curso'].errors ? 'is-invalid' : ''"
+               id="inputCourse" placeholder="Course" formControlName="curso">
+        <div class="invalid-feedback" *ngIf="teacherForm.get('curso').invalid && (teacherForm.get('curso').dirty || teacherForm.get('curso').touched)">
+          <span *ngIf="teacherForm.controls['curso'].hasError('required')">This field is required</span>
+          <span *ngIf="teacherForm.controls['curso'].hasError('maxlength')">Max length of this field is 50 characters</span>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="row margin-top-10">
+      <div class="col-12">
+        <re-captcha formControlName="formRecaptcha"></re-captcha>
+      </div>
+    </div>
+    <div class="margin-top-20">
+      <button type="button" id="cancel-save" class="btn btn-secondary margin-right-10" (click)="previousState()">
+        <i class="fa fa-ban"></i><span>Cancel</span>
+      </button>
+      <button type="submit" id="save-entity" [disabled]="teacherForm.invalid || isSaving" class="btn btn-primary">
+        <i class="fa fa-save"></i><span>Save</span>
+      </button>
+    </div>
+  </form>
+</div>
