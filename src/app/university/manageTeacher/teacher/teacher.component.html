@@ -17,9 +17,10 @@
     <div class="col-md-4 mt-3" *ngFor="let teacher of teachers; let i = index">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title">{{ teacher.nomeTeacher}} - {{ teacher.curso }}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Field Of Study: {{ teacher.grau }}</h6>
-          <p class="card-text">Date: {{ teacher.turno }}, {{ teacher.disciplina }}.</p>
+          <h5 class="card-title">Teacher Name: {{ teacher.nomeTeacher}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Degree: {{ teacher.grau }}</h6>
+          <p class="card-text">Discipline: {{ teacher.disciplina }}.</p>
+          <a class="card-link" [routerLink]="[teacher.id, 'view']">View details</a>
         </div>
       </div>
     </div>

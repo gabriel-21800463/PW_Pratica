@@ -17,9 +17,11 @@
     <div class="col-md-4 mt-3" *ngFor="let course of courses; let i = index">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title">{{ course.nomeCurso}} - {{ course.teacher }}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Field Of Study: {{ course.subject }}</h6>
-          <p class="card-text">Date: {{ course.turno }}, {{ course.estagio }}.</p>
+          <h5 class="card-title">Course Name: {{ course.nomeCurso}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Turn: {{ course.turno }}</h6>
+          <p class="card-text">Internship: {{ course.estagio }}</p>
+          <a class="card-link" [routerLink]="[course.id, 'view']">View details</a>
+
         </div>
       </div>
     </div>
@@ -72,3 +74,5 @@
   </div>
 
 </div>
+
+

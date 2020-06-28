@@ -1,27 +1,27 @@
 <div class="panel-container">
   <h2>
-    <span>Manage Certifications</span>
+    <span>Certification</span>
 
     <button id="create-entity" class="btn btn-primary float-right" [routerLink]="['new']">
       <i class="fa fa-plus"></i>
-      <span>Create a Certifications</span>
+      <span>Create</span>
     </button>
   </h2>
-
   <hr>
 
   <div class="alert alert-warning" id="no-result" *ngIf="certifications?.length === 0">
-    <span>No Certification found</span>
+    <span>No courses found</span>
   </div>
 
   <div class="row" >
     <div class="col-md-4 mt-3" *ngFor="let certification of certifications; let i = index">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title">{{ certification.certName}} - {{ certification.issuingOrg }}</h5>
+          <h5 class="card-title">Certification Name: {{ certification.certName}}</h5>
           <h6 class="card-subtitle mb-2 text-muted">Certification code: {{ certification.certCode }}</h6>
           <p class="card-text">Date: {{ certification.issuingDate }}, {{ certification.expireDate }}.</p>
-          <p class="card-text">Certification expires: {{ certification.expires}}</p>
+          <p class="card-text">Certification lapse: {{ certification.expires}}</p>
+          <a class="card-link" [routerLink]="[certification.id, 'view']">View details</a>
         </div>
       </div>
     </div>
@@ -35,11 +35,11 @@
       <tr>
         <th scope="col" ><span>ID</span></th>
         <th scope="col" ><span>Certification Name</span></th>
-        <th scope="col" ><span>Issuing organization</span></th>
+        <th scope="col" ><span>Issuing Org</span></th>
         <th scope="col" ><span>Issuing Date</span></th>
         <th scope="col" ><span>Expire Date</span></th>
-        <th scope="col" >Certification Code</th>
-        <th scope="col"></th>
+        <th scope="col" ><span>Certification Expires</span></th>
+        <th scope="col" ></th>
       </tr>
       </thead>
       <tbody>
@@ -49,7 +49,7 @@
         <td>{{ certification.issuingOrg }}</td>
         <td>{{ certification.issuingDate }}</td>
         <td>{{ certification.expireDate }}</td>
-        <td>{{ certification.certCode}}</td>
+        <td>{{ certification.expires }}</td>
         <td class="text-right">
           <div class="btn-group">
             <button type="submit" [routerLink]="[certification.id, 'view']" class="btn btn-info btn-sm">
@@ -66,13 +66,11 @@
               <i class="fa fa-times"></i>
               <span class="d-none d-md-inline">Delete</span>
             </button>
-
           </div>
         </td>
       </tr>
       </tbody>
     </table>
   </div>
-
 
 </div>

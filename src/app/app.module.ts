@@ -26,7 +26,7 @@ import {ContactsModule} from './contacts/contacts.module';
 import {ProfileModule} from './profile/profile.module';
 
 
-export const firebaseConfig = {
+const firebaseConfig = {
   apiKey: 'AIzaSyDSK_cAe7IiiXSFJUAQbt2DKIUXyGRWa-c',
   authDomain: 'my-linkedin-a21800463.firebaseapp.com',
   databaseURL: 'https://my-linkedin-a21800463.firebaseio.com',
