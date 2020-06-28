@@ -1,1 +1,74 @@
-<p>teacher works!</p>
+<div class="panel-container">
+  <h2>
+    <span>Teacher</span>
+
+    <button id="create-entity" class="btn btn-primary float-right" [routerLink]="['new']">
+      <i class="fa fa-plus"></i>
+      <span>Create Teacher</span>
+    </button>
+  </h2>
+  <hr>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="teachers?.length === 0">
+    <span>No teacher found</span>
+  </div>
+
+  <div class="row" >
+    <div class="col-md-4 mt-3" *ngFor="let teacher of teachers; let i = index">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ teacher.nomeTeacher}} - {{ teacher.curso }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Field Of Study: {{ teacher.grau }}</h6>
+          <p class="card-text">Date: {{ teacher.turno }}, {{ teacher.disciplina }}.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="table-responsive" id="projectsTable" *ngIf="teachers?.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col" ><span>ID</span></th>
+        <th scope="col" ><span>Teacher Name </span></th>
+        <th scope="col" ><span>Course</span></th>
+        <th scope="col" ><span>Degree</span></th>
+        <th scope="col" ><span>Formation Location</span></th>
+        <th scope="col" ><span>Discipline</span></th>
+        <th scope="col" ></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let teacher of teachers ;trackBy: trackId">
+        <td><a [routerLink]="[teacher.id, 'view']">{{ teacher.id }}</a></td>
+        <td>{{ teacher.nomeTeacher }}</td>
+        <td>{{ teacher.curso }}</td>
+        <td>{{ teacher.grau }}</td>
+        <td>{{ teacher.localFormacao }}</td>
+        <td>{{ teacher.disciplina }}</td>
+        <td class="text-right">
+          <div class="btn-group">
+            <button type="submit" [routerLink]="[teacher.id, 'view']" class="btn btn-info btn-sm">
+              <i class="fa fa-eye"></i>
+              <span class="d-none d-md-inline">View</span>
+            </button>
+
+            <button type="submit" [routerLink]="[teacher.id, 'edit']" class="btn btn-primary btn-sm">
+              <i class="fa fa-pencil"></i>
+              <span class="d-none d-md-inline">Edit</span>
+            </button>
+
+            <button type="submit" (click)="delete(teacher)" class="btn btn-danger btn-sm">
+              <i class="fa fa-times"></i>
+              <span class="d-none d-md-inline">Delete</span>
+            </button>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>

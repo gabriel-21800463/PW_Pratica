@@ -62,14 +62,12 @@ export class CourseUpdateComponent implements OnInit {
   private createForm() {
     this.courseForm = new FormGroup({
       id: new FormControl(''),
-      educationalInstitution: new FormControl('', [Validators.required, Validators.maxLength(50)]),
-      formation: new FormControl('', [Validators.required, Validators.maxLength(50)]),
-      fieldOfStudy: new FormControl('', [Validators.required, Validators.maxLength(80)]),
-      grade: new FormControl('', [Validators.required, Validators.maxLength(40)]),
-      activities: new FormControl('', [Validators.required, Validators.maxLength(60)]),
-      description: new FormControl('', [Validators.required, Validators.maxLength(350)]),
-      startDate: new FormControl('', [Validators.required]),
-      endDate: new FormControl('', [Validators.required]),
+      nomeCurso: new FormControl('', [Validators.required, Validators.maxLength(35)]),
+      teacher: new FormControl('', [Validators.required, Validators.maxLength(30)]),
+      subject: new FormControl('', [Validators.required, Validators.maxLength(30)]),
+      turno: new FormControl('', [Validators.required]),
+      estagio: new FormControl('', [Validators.required]),
+      ects: new FormControl('', [Validators.required]),
       formRecaptcha: new FormControl(null, [Validators.required])
     });
   }
@@ -77,14 +75,12 @@ export class CourseUpdateComponent implements OnInit {
   private updateForm(course: Course): void {
     this.courseForm.patchValue({
       id: course.id,
-      educationalInstitution: course.educationalInstitution,
-      formation: course.formation,
-      fieldOfStudy: course.fieldOfStudy,
-      startDate: course.startDate,
-      endDate: course.endDate,
-      grade: course.grade,
-      activities: course.activities,
-      description: course.description
+      nomeCurso: course.nomeCurso,
+      teacher: course.teacher,
+      subject: course.subject,
+      turno: course.turno,
+      estagio: course.estagio,
+      ects: course.ects,
     });
   }
 }

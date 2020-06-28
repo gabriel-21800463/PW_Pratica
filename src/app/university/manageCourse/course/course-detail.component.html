@@ -1,44 +1,36 @@
 <div class="row justify-content-center panel-container">
   <div class="col-8">
     <div *ngIf="course">
-      <h2><span>Academic Studies</span></h2>
+      <h2><span>Course</span></h2>
       <hr>
       <dl class="row-md entity-details">
         <dt><span >ID</span></dt>
         <dd>
           <span>{{ course.id }}</span>
         </dd>
-        <dt><span >Educational Institution</span></dt>
+        <dt><span >Course Name</span></dt>
         <dd>
-          <span>{{ course.educationalInstitution }}</span>
+          <span>{{ course.nomeCurso }}</span>
         </dd>
-        <dt><span >Formation</span></dt>
+        <dt><span >Teacher</span></dt>
         <dd>
-          <span>{{ course.formation }}</span>
+          <span>{{ course.teacher }}</span>
         </dd>
-        <dt><span >Field Of Study</span></dt>
+        <dt><span >Subject</span></dt>
         <dd>
-          <span>{{ course.fieldOfStudy }}</span>
+          <span>{{ course.subject }}</span>
         </dd>
-        <dt><span>Grade</span></dt>
+        <dt><span>Turn</span></dt>
         <dd>
-          <span>{{ course.grade }}</span>
+          <span>{{ course.turno }}</span>
         </dd>
-        <dt><span>Activities</span></dt>
+        <dt><span>Internship</span></dt>
         <dd>
-          <span>{{ course.activities }}</span>
+          <span>{{ course.estagio }}</span>
         </dd>
-        <dt><span>Start Date</span></dt>
+        <dt><span>ECTS</span></dt>
         <dd>
-          <span>{{ course.startDate }}</span>
-        </dd>
-        <dt><span>End Date</span></dt>
-        <dd>
-          <span>{{ course.endDate }}</span>
-        </dd>
-        <dt><span>Description</span></dt>
-        <dd>
-          <span>{{ course.description }}</span>
+          <span>{{ course.ects }}</span>
         </dd>
       </dl>
 
