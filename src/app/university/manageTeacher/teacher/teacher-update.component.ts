@@ -18,7 +18,7 @@ export class TeacherUpdateComponent implements OnInit {
   constructor(
     protected activatedRoute: ActivatedRoute,
     private toastr: ToastrService,
-    private courseService: TeacherService,
+    private teacherService: TeacherService,
     private formBuilder: FormBuilder,
     private router: Router) { }
 
@@ -32,7 +32,7 @@ export class TeacherUpdateComponent implements OnInit {
   saveTeacher(): void {
     this.isSaving = true;
     if (!this.teacherForm.get(['id']).value) {
-      this.courseService.createTeacher(this.teacherForm.getRawValue()).then(data => {
+      this.teacherService.createTeacher(this.teacherForm.getRawValue()).then(data => {
           this.isSaving = false;
           this.toastr.success('New Teacher successfully created', 'Success');
           this.router.navigate(['/teacher']);
@@ -42,7 +42,7 @@ export class TeacherUpdateComponent implements OnInit {
           this.toastr.error('An error occurred while saving a new teacher', 'Error');
         });
     } else {
-      this.courseService.updateTeacher(this.teacherForm.getRawValue()).then(() => {
+      this.teacherService.updateTeacher(this.teacherForm.getRawValue()).then(() => {
           this.isSaving = false;
           this.toastr.success('Teacher successfully updated', 'Success');
           this.router.navigate(['/teacher']);

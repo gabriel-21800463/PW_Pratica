@@ -4,6 +4,8 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {TeacherService} from '../teacher.service';
 import {NgxSpinnerService} from 'ngx-spinner';
 import {TeacherDeleteDialogComponent} from './teacher-delete-dialog.component';
+import {ICourse} from '../../manageCourse/course.model';
+import {CourseService} from '../../manageCourse/course.service';
 
 @Component({
   selector: 'app-teacher',
@@ -12,14 +14,23 @@ import {TeacherDeleteDialogComponent} from './teacher-delete-dialog.component';
 })
 export class TeacherComponent implements OnInit {
   teachers: ITeacher[] | null = null;
+  courses: ICourse[] | null = null;
 
-  constructor(protected modalService: NgbModal, private teacherService: TeacherService, private spinner: NgxSpinnerService) { }
+  // tslint:disable-next-line:max-line-length
+  constructor(protected modalService: NgbModal, private teacherService: TeacherService, private courseService: CourseService, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.spinner.show();
     this.teacherService.getTeachers().subscribe(data => {
       this.spinner.hide();
       this.teachers = data;
+    }, err => {
+      this.spinner.hide();
+    });
+
+    this.courseService.getCourses().subscribe(data => {
+      this.spinner.hide();
+      this.courses = data;
     }, err => {
       this.spinner.hide();
     });

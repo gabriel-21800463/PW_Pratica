@@ -44,6 +44,13 @@ const routes: Routes = [
         }
       },
       {
+        path: 'course/course/:id/view',
+        component: TeacherDetailComponent,
+        resolve: {
+          course: CourseResolver
+        }
+      },
+      {
         path: 'course/:id/edit',
         component: CourseUpdateComponent,
         resolve: {
@@ -59,6 +66,20 @@ const routes: Routes = [
       },
       {
         path: 'teacher/:id/view',
+        component: TeacherDetailComponent,
+        resolve: {
+          teacher: TeacherResolver
+        }
+      },
+      {
+        path: 'teacher/view',
+        component: TeacherDetailComponent,
+        resolve: {
+          teacher: TeacherResolver
+        }
+      },
+      {
+        path: 'teacher/edit',
         component: TeacherDetailComponent,
         resolve: {
           teacher: TeacherResolver
