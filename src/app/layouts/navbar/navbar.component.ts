@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import {Course, ICourse} from '../../university/manageCourse/course.model';
+import { CourseComponent} from '../../university/manageCourse/course/course.component';
+import { CourseService} from '../../university/manageCourse/course.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,18 +10,23 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-
   navBarSearchForm: FormGroup;
-
-  constructor() { }
-
+  course: Course;
+  constructor() {
+  }
   ngOnInit(): void {
     this.createForm();
   }
-
   private createForm() {
     this.navBarSearchForm = new FormGroup({
       searchKey: new FormControl(''),
     });
   }
+  getVal(item)
+  {
+    console.log(item.value);
+    alert(item.value);
+  }
 }
+
+

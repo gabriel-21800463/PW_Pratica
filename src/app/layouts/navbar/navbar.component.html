@@ -63,8 +63,10 @@
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-primary my-2 my-sm-0 text-center" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" #procura>
+      <button (click)="getVal(procura)" class="btn btn-primary my-2 my-sm-0 text-center" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+
     </form>
+
   </div>
 </nav>
