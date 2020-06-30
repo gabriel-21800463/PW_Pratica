@@ -16,33 +16,33 @@
 
   <div id="result-courses" *ngIf="courses?.length > 0">
     <h4><span> View/Change teacher of course:</span></h4>
-  <div class="row">
-    <div class="col-md-4 mt-3" *ngFor="let teacher of courses; let i = index">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Name Teacher: {{ teacher.teacher }}</h5>
-          <a class="card-link" [routerLink]="['/course/course', teacher.id, 'view']">View details</a>
+    <div class="row">
+      <div class="col-md-4 mt-3" *ngFor="let teacher of courses; let i = index">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Name Teacher: {{ teacher.teacher }}</h5>
+            <a class="card-link" [routerLink]="['/course/course', teacher.id, 'view']">View details</a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
     <hr>
   </div>
 
   <div id="result-teacher" *ngIf="teachers?.length > 0">
     <h4><span> Additional teachers:</span></h4>
-  <div class="row" >
-    <div class="col-md-4 mt-3" *ngFor="let teacher of teachers; let i = index">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Teacher Name: {{ teacher.nomeTeacher}}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Degree: {{ teacher.grau }}</h6>
-          <p class="card-text">Discipline: {{ teacher.disciplina }}.</p>
-          <a class="card-link" [routerLink]="[teacher.id, 'view']">View details</a>
+    <div class="row" >
+      <div class="col-md-4 mt-3" *ngFor="let teacher of teachers; let i = index">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Teacher Name: {{ teacher.nomeTeacher}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Degree: {{ teacher.grau }}</h6>
+            <p class="card-text">Discipline: {{ teacher.disciplina }}.</p>
+            <a class="card-link" [routerLink]="[teacher.id, 'view']">View details</a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
   </div>
 
   <br>
@@ -90,5 +90,4 @@
       </tbody>
     </table>
   </div>
-
 </div>

@@ -16,6 +16,11 @@ export class CourseUpdateComponent implements OnInit {
   courseForm: FormGroup;
   isSaving: boolean;
 
+  public show = false;
+  public buttonName: any = 'Add Teacher';
+  public show1 = false;
+  public buttonName1: any = 'Add Subject';
+
   constructor(
     protected activatedRoute: ActivatedRoute,
     private toastr: ToastrService,
@@ -30,6 +35,32 @@ export class CourseUpdateComponent implements OnInit {
     });
   }
 
+  toggle() {
+
+    // CHANGE THE NAME OF THE BUTTON.
+    if (this.show === true) {
+      this.show = false;
+      this.buttonName = 'Add Teacher';
+    }
+    else {
+      this.show = true;
+      this.buttonName = 'hide Teacher';
+    }
+  }
+
+  toggle1() {
+
+    // CHANGE THE NAME OF THE BUTTON.
+    if (this.show1 === true) {
+      this.show1 = false;
+      this.buttonName1 = 'Add Subject';
+    }
+    else {
+      this.show1 = true;
+      this.buttonName1 = 'hide Subject';
+    }
+  }
+
   saveCourse(): void {
     this.isSaving = true;
     if (!this.courseForm.get(['id']).value) {
@@ -40,7 +71,6 @@ export class CourseUpdateComponent implements OnInit {
         },
         err => {
           this.isSaving = false;
-          this.toastr.error('An error occurred while saving a new course', 'Error');
         });
     } else {
       this.courseService.updateCourse(this.courseForm.getRawValue()).then(() => {
@@ -63,12 +93,18 @@ export class CourseUpdateComponent implements OnInit {
     this.courseForm = new FormGroup({
       id: new FormControl(''),
       nomeCurso: new FormControl('', [Validators.required, Validators.maxLength(35)]),
-      teacher: new FormControl('', [Validators.required, Validators.maxLength(30)]),
-      subject: new FormControl('', [Validators.required, Validators.maxLength(30)]),
+      teacher: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+      subject: new FormControl('', [Validators.required, Validators.maxLength(50)]),
       turno: new FormControl('', [Validators.required]),
       estagio: new FormControl('', [Validators.required]),
       ects: new FormControl('', [Validators.required]),
-      formRecaptcha: new FormControl(null, [Validators.required])
+      especialização: new FormControl('', [Validators.required, Validators.maxLength(40)]),
+      grau: new FormControl('', [Validators.required]),
+      disciplina: new FormControl('', [Validators.required, Validators.maxLength(35)]),
+      dataInicio: new FormControl('', [Validators.required]),
+      dataFinal: new FormControl('', [Validators.required]),
+      turnoSubject: new FormControl('', [Validators.required]),
+      formRecaptcha: new FormControl(null, [Validators.required]),
     });
   }
 
@@ -81,6 +117,12 @@ export class CourseUpdateComponent implements OnInit {
       turno: course.turno,
       estagio: course.estagio,
       ects: course.ects,
+      especialização: course.especialização,
+      grau: course.grau,
+      disciplina: course.disciplina,
+      dataInicio: course.dataInicio,
+      dataFinal: course.dataFinal,
+      turnoSubject: course.turnoSubject
     });
   }
 }

@@ -25,7 +25,6 @@ import {UniversityModule} from './university/university.module';
 import {ContactsModule} from './contacts/contacts.module';
 import {ProfileModule} from './profile/profile.module';
 
-
 const firebaseConfig = {
   apiKey: 'AIzaSyDSK_cAe7IiiXSFJUAQbt2DKIUXyGRWa-c',
   authDomain: 'my-linkedin-a21800463.firebaseapp.com',
@@ -45,7 +44,7 @@ const firebaseConfig = {
     ManageCertificationsUpdateComponent,
     ManageCertificationsDeleteDialogComponent,
     ManageCertificationsDetailComponent,
-    CourseComponent
+    CourseComponent,
   ],
   imports: [
     BrowserModule,
