@@ -44,6 +44,43 @@
 
     </div>
   </div>
+
+
+  <div class="col-8">
+
+
+    <div *ngIf="course">
+      <h2><span>Teacher</span></h2>
+      <hr>
+      <dl class="row-md entity-details">
+        <dt><span >Associated Course ID</span></dt>
+        <dd>
+          <span>{{ course.id }}</span>
+        </dd>
+        <dt><span >Subject</span></dt>
+        <dd>
+          <span>{{ course.subject }}</span>
+        </dd>
+        <dt><span >Start Date</span></dt>
+        <dd>
+          <span>{{ course.dataInicio }}</span>
+        </dd>
+        <dt><span >End Date</span></dt>
+        <dd>
+          <span>{{ course.dataFinal }}</span>
+        </dd>
+        <dt><span >Turn</span></dt>
+        <dd>
+          <span>{{ course.turno }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info margin-right-10">
+        <i class="fa fa-arrow-left"></i><span>Back</span>
+      </button>
+
+    </div>
+  </div>
 </div>
 
 

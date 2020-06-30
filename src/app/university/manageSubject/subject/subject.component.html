@@ -13,6 +13,24 @@
     <span>No subject found</span>
   </div>
 
+  <div id="result-courses" *ngIf="courses?.length > 0">
+    <h5><span>Subjects associated with a course:</span></h5>
+    <div class="row">
+      <div class="col-md-4 mt-3" *ngFor="let subject of courses; let i = index">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Subject: {{ subject.subject }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Turn: {{ subject.turnoSubject }}</h6>
+            <a class="card-link" [routerLink]="[subject.id, 'view']">View details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+  </div>
+
+  <div id="result-teacher" *ngIf="subjects?.length > 0">
+    <h4><span> Additional teachers:</span></h4>
   <div class="row" >
     <div class="col-md-4 mt-3" *ngFor="let subject of subjects; let i = index">
       <div class="card">
@@ -21,12 +39,11 @@
           <h6 class="card-subtitle mb-2 text-muted">Discipline: {{ subject.disciplina }}</h6>
           <p class="card-text">Email: {{ subject.email }}</p>
           <a class="card-link" [routerLink]="[subject.id, 'view']">View details</a>
-
         </div>
       </div>
     </div>
   </div>
-
+  </div>
   <br>
 
   <div class="table-responsive" id="projectsTable" *ngIf="subjects?.length > 0">

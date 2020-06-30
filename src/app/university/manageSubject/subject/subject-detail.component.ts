@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {ISubject} from '../subject.model';
+import {ICourse} from '../../manageCourse/course.model';
 
 @Component({
   selector: 'app-subject-detail',
@@ -10,6 +11,7 @@ import {ISubject} from '../subject.model';
 export class SubjectDetailComponent implements OnInit {
 
   subject: ISubject | null = null;
+  course: ICourse | null = null;
 
   constructor(protected activatedRoute: ActivatedRoute) { }
 

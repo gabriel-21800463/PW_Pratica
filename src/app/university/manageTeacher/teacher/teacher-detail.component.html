@@ -49,7 +49,7 @@
       <h2><span>Teacher</span></h2>
       <hr>
       <dl class="row-md entity-details">
-        <dt><span >ID</span></dt>
+        <dt><span >Associated Course ID</span></dt>
         <dd>
           <span>{{ course.id }}</span>
         </dd>
@@ -57,28 +57,18 @@
         <dd>
           <span>{{ course.teacher }}</span>
         </dd>
-        <div *ngIf="teacher">
-          <dt><span >Course</span></dt>
-          <dd>
-            <span>{{ teacher.curso }}</span>
-          </dd>
-          <dt><span >Degree</span></dt>
-          <dd>
-            <span>{{ teacher.grau }}</span>
-          </dd>
-          <dt><span>Formation Spot</span></dt>
-          <dd>
-            <span>{{ teacher.localFormacao }}</span>
-          </dd>
-          <dt><span>Discipline</span></dt>
-          <dd>
-            <span>{{ teacher.disciplina }}</span>
-          </dd>
-          <dt><span>Turn</span></dt>
-          <dd>
-            <span>{{ teacher.turno }}</span>
-          </dd>
-        </div>
+        <dt><span >Specialization</span></dt>
+        <dd>
+          <span>{{ course.specialization }}</span>
+        </dd>
+        <dt><span >Degree</span></dt>
+        <dd>
+          <span>{{ course.grau }}</span>
+        </dd>
+        <dt><span >Discipline</span></dt>
+        <dd>
+          <span>{{ course.disciplina }}</span>
+        </dd>
       </dl>
 
       <button type="submit" (click)="previousState()" class="btn btn-info margin-right-10">

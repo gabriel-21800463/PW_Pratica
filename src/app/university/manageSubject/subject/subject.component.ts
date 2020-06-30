@@ -4,6 +4,8 @@ import {NgxSpinnerService} from 'ngx-spinner';
 import {ISubject} from '../subject.model';
 import {SubjectService} from '../subject.service';
 import {SubjectDeleteDialogComponent} from './subject-delete-dialog.component';
+import {ICourse} from '../../manageCourse/course.model';
+import {CourseService} from '../../manageCourse/course.service';
 
 @Component({
   selector: 'app-subject',
@@ -13,14 +15,23 @@ import {SubjectDeleteDialogComponent} from './subject-delete-dialog.component';
 export class SubjectComponent implements OnInit {
 
   subjects: ISubject[] | null = null;
+  courses: ICourse[] | null = null;
 
-  constructor(protected modalService: NgbModal, private subjectService: SubjectService, private spinner: NgxSpinnerService) { }
+  // tslint:disable-next-line:max-line-length
+  constructor(protected modalService: NgbModal, private subjectService: SubjectService, private spinner: NgxSpinnerService, private courseService: CourseService) { }
 
   ngOnInit(): void {
     this.spinner.show();
     this.subjectService.getSubjects().subscribe(data => {
       this.spinner.hide();
       this.subjects = data;
+    }, err => {
+      this.spinner.hide();
+    });
+
+    this.courseService.getCourses().subscribe(data => {
+      this.spinner.hide();
+      this.courses = data;
     }, err => {
       this.spinner.hide();
     });

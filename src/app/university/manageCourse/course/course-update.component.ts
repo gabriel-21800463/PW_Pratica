@@ -16,11 +16,6 @@ export class CourseUpdateComponent implements OnInit {
   courseForm: FormGroup;
   isSaving: boolean;
 
-  public show = false;
-  public buttonName: any = 'Add Teacher';
-  public show1 = false;
-  public buttonName1: any = 'Add Subject';
-
   constructor(
     protected activatedRoute: ActivatedRoute,
     private toastr: ToastrService,
@@ -33,32 +28,6 @@ export class CourseUpdateComponent implements OnInit {
     this.activatedRoute.data.subscribe(({ course }) => {
       this.updateForm(course);
     });
-  }
-
-  toggle() {
-
-    // CHANGE THE NAME OF THE BUTTON.
-    if (this.show === true) {
-      this.show = false;
-      this.buttonName = 'Add Teacher';
-    }
-    else {
-      this.show = true;
-      this.buttonName = 'hide Teacher';
-    }
-  }
-
-  toggle1() {
-
-    // CHANGE THE NAME OF THE BUTTON.
-    if (this.show1 === true) {
-      this.show1 = false;
-      this.buttonName1 = 'Add Subject';
-    }
-    else {
-      this.show1 = true;
-      this.buttonName1 = 'hide Subject';
-    }
   }
 
   saveCourse(): void {
