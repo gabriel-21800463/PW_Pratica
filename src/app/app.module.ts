@@ -21,6 +21,7 @@ import { ManageCertificationsUpdateComponent } from './education/certifications/
 import { ManageCertificationsDeleteDialogComponent } from './education/certifications/manage-certifications/manage-certifications-delete-dialog.component';
 import { ManageCertificationsDetailComponent } from './education/certifications/manage-certifications/manage-certifications-detail.component';
 import { CourseComponent } from './university/manageCourse/course/course.component';
+import { SubjectComponent} from './university/manageSubject/subject/subject.component';
 import {UniversityModule} from './university/university.module';
 import {ContactsModule} from './contacts/contacts.module';
 import {ProfileModule} from './profile/profile.module';
@@ -45,6 +46,7 @@ const firebaseConfig = {
     ManageCertificationsDeleteDialogComponent,
     ManageCertificationsDetailComponent,
     CourseComponent,
+    SubjectComponent,
   ],
   imports: [
     BrowserModule,

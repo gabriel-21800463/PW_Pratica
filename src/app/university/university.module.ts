@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { UniversityRoutingModule } from './university-routing.module';
 import { TeacherComponent } from './manageTeacher/teacher/teacher.component';
-import { SubjectComponent } from './manageSubject/subject/subject.component';
 import {CourseUpdateComponent} from './manageCourse/course/course-update.component';
 import {SharedModule} from '../shared/shared.module';
 import { CourseDeleteDialogComponent } from './manageCourse/course/course-delete-dialog.component';
@@ -18,7 +17,6 @@ import { CourseDetailComponent } from './manageCourse/course/course-detail.compo
 @NgModule({
   declarations: [
     TeacherComponent,
-    SubjectComponent,
     CourseUpdateComponent,
     CourseDeleteDialogComponent,
     SubjectDeleteDialogComponent,

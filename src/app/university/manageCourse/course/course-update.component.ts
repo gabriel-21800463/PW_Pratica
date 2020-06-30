@@ -40,6 +40,7 @@ export class CourseUpdateComponent implements OnInit {
         },
         err => {
           this.isSaving = false;
+          this.toastr.error('An error occurred while saving a new Course', 'Error');
         });
     } else {
       this.courseService.updateCourse(this.courseForm.getRawValue()).then(() => {
@@ -49,6 +50,7 @@ export class CourseUpdateComponent implements OnInit {
         },
         err => {
           this.isSaving = false;
+          this.toastr.error('An error occurred while saving a new Course', 'Error');
         });
     }
   }

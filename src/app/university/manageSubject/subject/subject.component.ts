@@ -18,7 +18,7 @@ export class SubjectComponent implements OnInit {
   courses: ICourse[] | null = null;
 
   // tslint:disable-next-line:max-line-length
-  constructor(protected modalService: NgbModal, private subjectService: SubjectService, private spinner: NgxSpinnerService, private courseService: CourseService) { }
+  constructor(protected modalService: NgbModal, private subjectService: SubjectService, private courseService: CourseService, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.spinner.show();

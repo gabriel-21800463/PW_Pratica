@@ -19,6 +19,10 @@ export class SubjectDetailComponent implements OnInit {
     this.activatedRoute.data.subscribe(({ subject }) => {
       this.subject = subject;
     });
+
+    this.activatedRoute.data.subscribe(({ course }) => {
+      this.course = course;
+    });
   }
 
   previousState(): void {
