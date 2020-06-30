@@ -12,14 +12,6 @@
         <dd>
           <span>{{ course.nomeCurso }}</span>
         </dd>
-        <dt><span >Teacher</span></dt>
-        <dd>
-          <span>{{ course.teacher }}</span>
-        </dd>
-        <dt><span >Subject</span></dt>
-        <dd>
-          <span>{{ course.subject }}</span>
-        </dd>
         <dt><span>Turn</span></dt>
         <dd>
           <span>{{ course.turno }}</span>
@@ -32,6 +24,46 @@
         <dd>
           <span>{{ course.ects }}</span>
         </dd>
+        <hr>
+        <span>Teacher data:</span>
+        <hr>
+        <dt><span >Teacher Name</span></dt>
+        <dd>
+          <span>{{ course.teacher }}</span>
+        </dd>
+        <dt><span >Specialization</span></dt>
+        <dd>
+          <span>{{ course.specialization }}</span>
+        </dd>
+        <dt><span >Degree</span></dt>
+        <dd>
+          <span>{{ course.grau }}</span>
+        </dd>
+        <dt><span >Discipline</span></dt>
+        <dd>
+          <span>{{ course.disciplina }}</span>
+        </dd>
+        <hr>
+        <span>Subject data:</span>
+        <hr>
+        <dt><span >Subject</span></dt>
+        <dd>
+          <span>{{ course.subject }}</span>
+        </dd>
+        <dt><span >Start Date</span></dt>
+        <dd>
+          <span>{{ course.dataInicio }}</span>
+        </dd>
+        <dt><span >End Date</span></dt>
+        <dd>
+          <span>{{ course.dataFinal }}</span>
+        </dd>
+        <dt><span >Turn</span></dt>
+        <dd>
+          <span>{{ course.turno }}</span>
+        </dd>
+
+
       </dl>
 
       <button type="submit" (click)="previousState()" class="btn btn-info margin-right-10">

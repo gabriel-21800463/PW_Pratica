@@ -80,7 +80,6 @@ export class CourseUpdateComponent implements OnInit {
         },
         err => {
           this.isSaving = false;
-          this.toastr.error('An error occurred while saving a new course', 'Error');
         });
     }
   }
@@ -98,7 +97,7 @@ export class CourseUpdateComponent implements OnInit {
       turno: new FormControl('', [Validators.required]),
       estagio: new FormControl('', [Validators.required]),
       ects: new FormControl('', [Validators.required]),
-      especialização: new FormControl('', [Validators.required, Validators.maxLength(40)]),
+      specialization: new FormControl('', [Validators.required, Validators.maxLength(40)]),
       grau: new FormControl('', [Validators.required]),
       disciplina: new FormControl('', [Validators.required, Validators.maxLength(35)]),
       dataInicio: new FormControl('', [Validators.required]),
@@ -117,7 +116,7 @@ export class CourseUpdateComponent implements OnInit {
       turno: course.turno,
       estagio: course.estagio,
       ects: course.ects,
-      especialização: course.especialização,
+      specialization: course.specialization,
       grau: course.grau,
       disciplina: course.disciplina,
       dataInicio: course.dataInicio,

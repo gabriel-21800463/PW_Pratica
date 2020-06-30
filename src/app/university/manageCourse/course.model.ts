@@ -1,12 +1,11 @@
 export interface ICourse {
   id?: string;
   nomeCurso?: string;
-
   turno?: string;
   estagio?: string;
   ects?: string;
   teacher?: string;
-  especialização?: string;
+  specialization?: string;
   grau?: string;
   disciplina?: string;
   subject?: string;
@@ -24,7 +23,7 @@ export class Course implements ICourse {
     public turno?: string,
     public estagio?: string,
     public ects?: string,
-    public especialização?: string,
+    public specialization?: string,
     public grau?: string,
     public disciplina?: string,
     public dataInicio?: string,

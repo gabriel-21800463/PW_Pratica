@@ -58,7 +58,7 @@
           <ng-container >
             <div *ngIf="show" style="margin-top : 5%; text-align: left;">
 
-              <div class="form-group col-md-8 mb-8">
+              <div class="form-group col-md-6 mb-6">
                 <label for="inputCourseName">Teacher Name</label>
                 <input type="textTeacher" class="form-control" [ngClass]="courseForm.get('teacher').invalid && (courseForm.get('teacher').dirty || courseForm.get('teacher').touched) && courseForm.controls['teacher'].errors ? 'is-invalid' : ''"
                        id="inputTeacher" placeholder="Teacher Name" formControlName="teacher">
@@ -67,16 +67,16 @@
                   <span *ngIf="courseForm.controls['teacher'].hasError('maxlength')">Max length of this field is 50 characters</span>
                 </div>
               </div>
-              <div class="form-group col-md-8 mb-8">
+              <div class="form-group col-md-6 mb-6">
                 <label for="inputCourseName">Specialization</label>
-                <input type="inputEspecialização" class="form-control" [ngClass]="courseForm.get('especialização').invalid && (courseForm.get('especialização').dirty || courseForm.get('especialização').touched) && courseForm.controls['especialização'].errors ? 'is-invalid' : ''"
-                       id="inputEspecialização" placeholder="Specialization" formControlName="especialização">
-                <div class="invalid-feedback" *ngIf="courseForm.get('especialização').invalid && (courseForm.get('especialização').dirty || courseForm.get('especialização').touched)">
-                  <span *ngIf="courseForm.controls['especialização'].hasError('required')">This field is required</span>
-                  <span *ngIf="courseForm.controls['especialização'].hasError('maxlength')">Max length of this field is 40 characters</span>
+                <input type="inputSpecialization" class="form-control" [ngClass]="courseForm.get('specialization').invalid && (courseForm.get('specialization').dirty || courseForm.get('specialization').touched) && courseForm.controls['specialization'].errors ? 'is-invalid' : ''"
+                       id="inputSpecialization" placeholder="Specialization" formControlName="specialization">
+                <div class="invalid-feedback" *ngIf="courseForm.get('specialization').invalid && (courseForm.get('specialization').dirty || courseForm.get('specialization').touched)">
+                  <span *ngIf="courseForm.controls['specialization'].hasError('required')">This field is required</span>
+                  <span *ngIf="courseForm.controls['specialization'].hasError('maxlength')">Max length of this field is 40 characters</span>
                 </div>
               </div>
-              <div class="form-group col-md-8 mb-8">
+              <div class="form-group col-md-6 mb-6">
                 <label for="inputDegree">Degree</label>
                 <select id="inputDegree" class="form-control" [ngClass]="courseForm.get('grau').invalid && (courseForm.get('grau').dirty || courseForm.get('grau').touched) && courseForm.controls['grau'].errors ? 'is-invalid' : ''"
                         formControlName="grau">
@@ -89,10 +89,10 @@
                   <span *ngIf="courseForm.controls['grau'].hasError('maxlength')">Max length of this field is 50 characters</span>
                 </div>
               </div>
-              <div class="form-group col-md-8 mb-8">
+              <div class="form-group col-md-6 mb-6">
                 <label for="inputDiscipline">Discipline</label>
                 <input type="text" class="form-control" [ngClass]="courseForm.get('disciplina').invalid && (courseForm.get('disciplina').dirty || courseForm.get('disciplina').touched) && courseForm.controls['disciplina'].errors ? 'is-invalid' : ''"
-                       id="inputDiscipline" placeholder="Formation Spot" formControlName="disciplina">
+                       id="inputDiscipline" placeholder="Discipline" formControlName="disciplina">
                 <div class="invalid-feedback" *ngIf="courseForm.get('disciplina').invalid && (courseForm.get('disciplina').dirty || courseForm.get('disciplina').touched)">
                   <span *ngIf="courseForm.controls['disciplina'].hasError('required')">This field is required</span>
                   <span *ngIf="courseForm.controls['disciplina'].hasError('maxlength')">Max length of this field is 35 characters</span>
