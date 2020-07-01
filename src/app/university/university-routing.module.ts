@@ -53,6 +53,9 @@ const routes: Routes = [
       {
         path: 'subject/subject/:id/view',
         component: SubjectDetailComponent,
+        resolve: {
+          course: CourseResolver
+        }
       },
       {
         path: 'course/:id/edit',

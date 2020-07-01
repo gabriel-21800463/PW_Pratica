@@ -10,9 +10,8 @@
   <hr>
 
   <div class="alert alert-warning" id="no-result" *ngIf="teachers?.length === 0">
-    <span>No teacher found</span>
+    <span>No teacher create found</span>
   </div>
-
 
   <div id="result-courses" *ngIf="courses?.length > 0">
     <h5><span>Teachers associated with a course:</span></h5>
@@ -31,7 +30,7 @@
   </div>
 
   <div id="result-teacher" *ngIf="teachers?.length > 0">
-    <h4><span> Additional teachers:</span></h4>
+    <h5><span> Additional teachers:</span></h5>
     <div class="row" >
       <div class="col-md-4 mt-3" *ngFor="let teacher of teachers; let i = index">
         <div class="card">
