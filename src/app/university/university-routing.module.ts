@@ -30,6 +30,10 @@ const routes: Routes = [
         component: SubjectComponent
       },
       {
+        path: 'universit',
+        component: CourseComponent,
+      },
+      {
         path: 'course/new',
         component: CourseUpdateComponent,
         resolve: {
@@ -44,14 +48,14 @@ const routes: Routes = [
         }
       },
       {
-        path: 'course/course/:id/view',
+        path: 'universit/teacher/:id/view',
         component: TeacherDetailComponent,
         resolve: {
           course: CourseResolver
         }
       },
       {
-        path: 'subject/subject/:id/view',
+        path: 'universit/subject/:id/view',
         component: SubjectDetailComponent,
         resolve: {
           course: CourseResolver
