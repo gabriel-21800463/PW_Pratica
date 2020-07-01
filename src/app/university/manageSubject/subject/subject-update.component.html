@@ -11,42 +11,27 @@
         </div>
       </div>
       <div class="form-group col-md-6 mb-6">
-        <label for="inputDiscipline">Discipline</label>
-        <input type="text" class="form-control" [ngClass]="subjectForm.get('disciplina').invalid && (subjectForm.get('disciplina').dirty || subjectForm.get('disciplina').touched) && subjectForm.controls['disciplina'].errors ? 'is-invalid' : ''"
-               id="inputDiscipline" placeholder="Discipline" formControlName="disciplina">
-        <div class="invalid-feedback" *ngIf="subjectForm.get('disciplina').invalid && (subjectForm.get('disciplina').dirty || subjectForm.get('disciplina').touched)">
-          <span *ngIf="subjectForm.controls['disciplina'].hasError('required')">This field is required</span>
-          <span *ngIf="subjectForm.controls['disciplina'].hasError('maxlength')">Max length of this field is 50 characters</span>
+        <label for="inputnacionalidade">Nationality</label>
+        <input type="text" class="form-control" [ngClass]="subjectForm.get('nacionalidade').invalid && (subjectForm.get('nacionalidade').dirty || subjectForm.get('nacionalidade').touched) && subjectForm.controls['nacionalidade'].errors ? 'is-invalid' : ''"
+               id="inputnacionalidade" placeholder="Nationality" formControlName="nacionalidade">
+        <div class="invalid-feedback" *ngIf="subjectForm.get('nacionalidade').invalid && (subjectForm.get('nacionalidade').dirty || subjectForm.get('nacionalidade').touched)">
+          <span *ngIf="subjectForm.controls['nacionalidade'].hasError('required')">This field is required</span>
+          <span *ngIf="subjectForm.controls['nacionalidade'].hasError('maxlength')">Max length of this field is 35 characters</span>
         </div>
       </div>
-
     </div>
     <div class="form-row">
-      <div class="form-group col-md-3 mb-3">
-        <label for="inputStartDate">Start Date</label>
-        <input  type="date" class="form-control" [ngClass]="subjectForm.get('dataInicio').invalid && (subjectForm.get('dataInicio').dirty || subjectForm.get('dataInicio').touched) && subjectForm.controls['dataInicio'].errors ? 'is-invalid' : ''"
-                id="inputStartDate" placeholder="Start Date" formControlName="dataInicio"/>
-        <div class="invalid-feedback" *ngIf="subjectForm.get('dataInicio').invalid && (subjectForm.get('dataInicio').dirty || subjectForm.get('dataInicio').touched)">
-          <span *ngIf="subjectForm.controls['dataInicio'].hasError('required')">This field is required</span>
-        </div>
-      </div>
-      <div class="form-group col-md-3 mb-3">
-        <label for="inputFinalDate">Final Date</label>
-        <input  type="date" class="form-control" [ngClass]="subjectForm.get('dataFinal').invalid && (subjectForm.get('dataFinal').dirty || subjectForm.get('dataFinal').touched) && subjectForm.controls['dataFinal'].errors ? 'is-invalid' : ''"
-                id="inputFinalDate" placeholder="Final Date" formControlName="dataFinal"/>
-        <div class="invalid-feedback" *ngIf="subjectForm.get('dataFinal').invalid && (subjectForm.get('dataFinal').dirty || subjectForm.get('dataFinal').touched)">
-          <span *ngIf="subjectForm.controls['dataFinal'].hasError('required')">This field is required</span>
-        </div>
-      </div>
       <div class="form-group col-md-6 mb-6">
         <label for="inputCourse">Course</label>
         <select id="inputCourse" class="form-control" [ngClass]="subjectForm.get('curso').invalid && (subjectForm.get('curso').dirty || subjectForm.get('curso').touched) && subjectForm.controls['curso'].errors ? 'is-invalid' : ''"
                 formControlName="curso">
-          <option>Yes</option>
-          <option>No</option>
+          <option></option>
+          <option *ngFor="let course of courses; let i = index">
+            {{ course.nomeCurso}}
+          </option>
         </select>
         <div class="invalid-feedback" *ngIf="subjectForm.get('curso').invalid && (subjectForm.get('curso').dirty || subjectForm.get('curso').touched)">
-          <span *ngIf="subjectForm.controls['curso'].hasError('required')">This field is required</span>
+          <span *ngIf="subjectForm.controls['curso'].hasError('required')">To add a Subject you need a Course created</span>
         </div>
       </div>
       <div class="form-group col-md-6 mb-6">
@@ -67,6 +52,17 @@
         </select>
         <div class="invalid-feedback" *ngIf="subjectForm.get('turno').invalid && (subjectForm.get('turno').dirty || subjectForm.get('turno').touched)">
           <span *ngIf="subjectForm.controls['turno'].hasError('required')">This field is required</span>
+        </div>
+      </div>
+      <div class="form-group col-md-6 mb-6">
+        <label for="inputbolsa">Scholarship</label>
+        <select id="inputbolsa" class="form-control" [ngClass]="subjectForm.get('bolsa').invalid && (subjectForm.get('bolsa').dirty || subjectForm.get('bolsa').touched) && subjectForm.controls['bolsa'].errors ? 'is-invalid' : ''"
+                formControlName="bolsa">
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+        <div class="invalid-feedback" *ngIf="subjectForm.get('bolsa').invalid && (subjectForm.get('bolsa').dirty || subjectForm.get('bolsa').touched)">
+          <span *ngIf="subjectForm.controls['bolsa'].hasError('required')">This field is required</span>
         </div>
       </div>
     </div>

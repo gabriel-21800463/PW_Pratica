@@ -12,10 +12,16 @@
       </div>
       <div class="form-group col-md-6 mb-6">
         <label for="inputCourse">Course</label>
-        <input type="text" class="form-control" [ngClass]="teacherForm.get('curso').invalid && (teacherForm.get('curso').dirty || teacherForm.get('curso').touched) && teacherForm.controls['curso'].errors ? 'is-invalid' : ''"
-               id="inputCourse" placeholder="Course" formControlName="curso">
+        <select id="inputCourse" class="form-control" [ngClass]="teacherForm.get('curso').invalid && (teacherForm.get('curso').dirty || teacherForm.get('curso').touched) && teacherForm.controls['curso'].errors ? 'is-invalid' : ''"
+                formControlName="curso">
+          <option></option>
+          <option *ngFor="let teacher of courses; let i = index">
+            {{ teacher.nomeCurso}}
+          </option>
+        </select>
+
         <div class="invalid-feedback" *ngIf="teacherForm.get('curso').invalid && (teacherForm.get('curso').dirty || teacherForm.get('curso').touched)">
-          <span *ngIf="teacherForm.controls['curso'].hasError('required')">This field is required</span>
+          <span *ngIf="teacherForm.controls['curso'].hasError('required')">To add a teacher you need a Course created</span>
           <span *ngIf="teacherForm.controls['curso'].hasError('maxlength')">Max length of this field is 50 characters</span>
         </div>
       </div>
@@ -54,9 +60,8 @@
         <label for="inputTurn">Turn</label>
         <select id="inputTurn" class="form-control" [ngClass]="teacherForm.get('turno').invalid && (teacherForm.get('turno').dirty || teacherForm.get('turno').touched) && teacherForm.controls['turno'].errors ? 'is-invalid' : ''"
                 formControlName="turno">
-          <option>Daytime</option>
+          <option>DayTime</option>
           <option>Nightly</option>
-          <option>Daytime - Nightly</option>
         </select>
         <div class="invalid-feedback" *ngIf="teacherForm.get('turno').invalid && (teacherForm.get('turno').dirty || teacherForm.get('turno').touched)">
           <span *ngIf="teacherForm.controls['turno'].hasError('required')">This field is required</span>

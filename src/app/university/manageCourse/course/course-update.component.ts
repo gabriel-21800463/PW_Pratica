@@ -71,9 +71,9 @@ export class CourseUpdateComponent implements OnInit {
       specialization: new FormControl('', [Validators.required, Validators.maxLength(40)]),
       grau: new FormControl('', [Validators.required]),
       disciplina: new FormControl('', [Validators.required, Validators.maxLength(35)]),
-      dataInicio: new FormControl('', [Validators.required]),
-      dataFinal: new FormControl('', [Validators.required]),
-      turnoSubject: new FormControl('', [Validators.required]),
+      nomeAluno: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+      bolsa: new FormControl('', [Validators.required]),
+      nacionalidade: new FormControl('', [Validators.required, Validators.maxLength(35)]),
       formRecaptcha: new FormControl(null, [Validators.required]),
     });
   }
@@ -90,9 +90,9 @@ export class CourseUpdateComponent implements OnInit {
       specialization: course.specialization,
       grau: course.grau,
       disciplina: course.disciplina,
-      dataInicio: course.dataInicio,
-      dataFinal: course.dataFinal,
-      turnoSubject: course.turnoSubject
+      nomeAluno: course.nomeAluno,
+      bolsa: course.bolsa,
+      nacionalidade: course.nacionalidade
     });
   }
 }

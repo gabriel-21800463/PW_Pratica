@@ -9,9 +9,9 @@ export interface ICourse {
   grau?: string;
   disciplina?: string;
   subject?: string;
-  dataInicio?: string;
-  dataFinal?: string;
-  turnoSubject?: string;
+  nomeAluno?: string;
+  bolsa?: string;
+  nacionalidade?: string;
 }
 
 export class Course implements ICourse {
@@ -26,8 +26,8 @@ export class Course implements ICourse {
     public specialization?: string,
     public grau?: string,
     public disciplina?: string,
-    public dataInicio?: string,
-    public dataFinal?: string,
-    public turnoSubject?: string
+    public nomeAluno?: string,
+    public bolsa?: string,
+    public nacionalidade?: string
   ) {}
 }

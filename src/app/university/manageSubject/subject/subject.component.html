@@ -15,13 +15,13 @@
 
 
   <div id="result-courses" *ngIf="courses?.length > 0">
-    <h5><span>Teachers associated with a course:</span></h5>
+    <h5><span>Subjects associated with a course:</span></h5>
     <div class="row">
       <div class="col-md-4 mt-3" *ngFor="let subject of courses; let i = index">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Name Teacher: {{ subject.teacher }}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Specialization: {{ subject.specialization }}</h6>
+            <h5 class="card-title">Title Subject: {{ subject.subject }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Student Name: {{ subject.nomeAluno }}</h6>
             <a class="card-link" [routerLink]="['/universit/subject',subject.id, 'view']">View details</a>
           </div>
         </div>
@@ -31,14 +31,14 @@
   </div>
 
   <div id="result-teacher" *ngIf="subjects?.length > 0">
-    <h5><span> Additional teachers:</span></h5>
+    <h5><span> Additional subjects:</span></h5>
     <div class="row" >
       <div class="col-md-4 mt-3" *ngFor="let subject of subjects; let i = index">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Teacher Name: {{ subject.dataFinal}}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Degree: {{ subject.dataInicio }}</h6>
-            <p class="card-text">Discipline: {{ subject.disciplina }}.</p>
+            <h5 class="card-title">Student Name: {{ subject.nomeAluno}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Scholarship: {{ subject.bolsa }}</h6>
+            <p class="card-text">Turn: {{ subject.turno }}.</p>
             <a class="card-link" [routerLink]="[subject.id, 'view']">View details</a>
           </div>
         </div>
@@ -54,7 +54,7 @@
       <tr>
         <th scope="col" ><span>ID</span></th>
         <th scope="col" ><span>Student Name </span></th>
-        <th scope="col" ><span>Discipline</span></th>
+        <th scope="col" ><span>Scholarship</span></th>
         <th scope="col" ><span>Course</span></th>
         <th scope="col" ><span>Email</span></th>
         <th scope="col" ><span>Turn</span></th>
@@ -65,7 +65,7 @@
       <tr *ngFor="let subject of subjects ;trackBy: trackId">
         <td><a [routerLink]="[subject.id, 'view']">{{ subject.id }}</a></td>
         <td>{{ subject.nomeAluno }}</td>
-        <td>{{ subject.disciplina }}</td>
+        <td>{{ subject.bolsa}}</td>
         <td>{{ subject.curso }}</td>
         <td>{{ subject.email }}</td>
         <td>{{ subject.turno }}</td>

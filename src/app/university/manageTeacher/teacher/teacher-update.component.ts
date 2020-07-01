@@ -4,6 +4,9 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {ToastrService} from 'ngx-toastr';
 import {Teacher} from '../teacher.model';
 import {TeacherService} from '../teacher.service';
+import {ICourse} from '../../manageCourse/course.model';
+import {CourseService} from '../../manageCourse/course.service';
+import {NgxSpinnerService} from 'ngx-spinner';
 
 @Component({
   selector: 'app-teacher-update',
@@ -15,17 +18,28 @@ export class TeacherUpdateComponent implements OnInit {
   teacherForm: FormGroup;
   isSaving: boolean;
 
+  courses: ICourse[] | null = null;
+
   constructor(
     protected activatedRoute: ActivatedRoute,
     private toastr: ToastrService,
     private teacherService: TeacherService,
     private formBuilder: FormBuilder,
-    private router: Router) { }
+    private router: Router,
+    private courseService: CourseService,
+    private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.createForm();
     this.activatedRoute.data.subscribe(({ teacher }) => {
       this.updateForm(teacher);
+    });
+
+    this.courseService.getCourses().subscribe(data => {
+      this.spinner.hide();
+      this.courses = data;
+    }, err => {
+      this.spinner.hide();
     });
   }
 
@@ -62,7 +76,7 @@ export class TeacherUpdateComponent implements OnInit {
     this.teacherForm = new FormGroup({
       id: new FormControl(''),
       nomeTeacher: new FormControl('', [Validators.required, Validators.maxLength(35)]),
-      curso: new FormControl('', [Validators.required, Validators.maxLength(30)]),
+      curso: new FormControl('', [Validators.required]),
       grau: new FormControl('', [Validators.required, Validators.maxLength(30)]),
       localFormacao: new FormControl('', [Validators.required]),
       disciplina: new FormControl('', [Validators.required]),

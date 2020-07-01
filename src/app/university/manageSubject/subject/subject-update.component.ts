@@ -4,6 +4,9 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {ToastrService} from 'ngx-toastr';
 import {Subject} from '../subject.model';
 import {SubjectService} from '../subject.service';
+import {ICourse} from '../../manageCourse/course.model';
+import {CourseService} from '../../manageCourse/course.service';
+import {NgxSpinnerService} from 'ngx-spinner';
 
 @Component({
   selector: 'app-subject-update',
@@ -15,17 +18,28 @@ export class SubjectUpdateComponent implements OnInit {
   subjectForm: FormGroup;
   isSaving: boolean;
 
+  courses: ICourse[] | null = null;
+
   constructor(
     protected activatedRoute: ActivatedRoute,
     private toastr: ToastrService,
     private subjectService: SubjectService,
     private formBuilder: FormBuilder,
-    private router: Router) { }
+    private router: Router,
+    private courseService: CourseService,
+    private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.createForm();
-    this.activatedRoute.data.subscribe(({ course: subject }) => {
+    this.activatedRoute.data.subscribe(({ subject }) => {
       this.updateForm(subject);
+    });
+
+    this.courseService.getCourses().subscribe(data => {
+      this.spinner.hide();
+      this.courses = data;
+    }, err => {
+      this.spinner.hide();
     });
   }
 
@@ -62,12 +76,11 @@ export class SubjectUpdateComponent implements OnInit {
     this.subjectForm = new FormGroup({
       id: new FormControl(''),
       nomeAluno: new FormControl('', [Validators.required, Validators.maxLength(35)]),
-      disciplina: new FormControl('', [Validators.required, Validators.maxLength(30)]),
-      curso: new FormControl('', [Validators.required, Validators.maxLength(30)]),
-      dataInicio: new FormControl('', [Validators.required]),
-      dataFinal: new FormControl('', [Validators.required]),
+      curso: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
       turno: new FormControl('', [Validators.required]),
+      bolsa: new FormControl('', [Validators.required]),
+      nacionalidade: new FormControl('', [Validators.required, Validators.maxLength(35)]),
       formRecaptcha: new FormControl(null, [Validators.required])
     });
   }
@@ -76,12 +89,11 @@ export class SubjectUpdateComponent implements OnInit {
     this.subjectForm.patchValue({
       id: subject.id,
       nomeAluno: subject.nomeAluno,
-      disciplina: subject.disciplina,
       curso: subject.curso,
-      dataIninio: subject.dataInicio,
-      dataFinal: subject.dataFinal,
       email: subject.email,
       turno: subject.turno,
+      bolsa: subject.bolsa,
+      nacionalidade: subject.nacionalidade,
     });
   }
 }
