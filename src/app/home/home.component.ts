@@ -20,13 +20,13 @@ export class HomeComponent implements OnInit {
   teachers: ITeacher[] | null = null;
 
   public show = false;
-  public buttonName: any = 'Ver detalhes';
+  public buttonName: any = 'View Details';
 
   public show1 = false;
-  public buttonName1: any = 'Ver detalhes';
+  public buttonName1: any = 'View Details';
 
   public show2 = false;
-  public buttonName2: any = 'Ver detalhes';
+  public buttonName2: any = 'View Details';
 
   constructor(
     protected modalService: NgbModal,
@@ -67,11 +67,11 @@ export class HomeComponent implements OnInit {
     // CHANGE THE NAME OF THE BUTTON.
     if (this.show === true) {
       this.show = false;
-      this.buttonName = 'Ver detalhes';
+      this.buttonName = 'View Details';
     }
     else {
       this.show = true;
-      this.buttonName = 'Ocutar Detalhes';
+      this.buttonName = 'Hide Details';
     }
   }
   toggle1() {
@@ -79,11 +79,11 @@ export class HomeComponent implements OnInit {
     // CHANGE THE NAME OF THE BUTTON.
     if (this.show1 === true) {
       this.show1 = false;
-      this.buttonName1 = 'Ver detalhes';
+      this.buttonName1 = 'View Details';
     }
     else {
       this.show1 = true;
-      this.buttonName1 = 'Ocutar Detalhes';
+      this.buttonName1 = 'Hide Details';
     }
   }
   toggle2() {
@@ -91,11 +91,11 @@ export class HomeComponent implements OnInit {
     // CHANGE THE NAME OF THE BUTTON.
     if (this.show2 === true) {
       this.show2 = false;
-      this.buttonName2 = 'Ver detalhes';
+      this.buttonName2 = 'View Details';
     }
     else {
       this.show2 = true;
-      this.buttonName2 = 'Ocutar Detalhes';
+      this.buttonName2 = 'Hide Details';
     }
   }
 

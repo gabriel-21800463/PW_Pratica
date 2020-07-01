@@ -12,12 +12,12 @@
   <div class="alert alert-warning" id="no-result" *ngIf="courses?.length === 0">
     <span>No courses found</span>
   </div>
-
-  <form class="form-inline my-2 my-lg-0">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" #procura>
-    <button (click)="getVal(procura)" class="btn btn-primary my-2 my-sm-0 text-center" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-  </form>
-
+  <div>
+    <div class="form-group col-md-2 mb-2">
+      <h5>Course, Teacher and Subject:</h5>
+      <input [(ngModel)]="procura"  [ngModelOptions]="{standalone: true}" (input)="Search()" class="form-control mr-sm-2" type="text" placeholder="Search"  />
+    </div>
+  </div>
   <div class="row" >
     <div class="col-md-4 mt-3" *ngFor="let course of courses; let i = index">
       <div class="card">
@@ -26,6 +26,7 @@
           <h6 class="card-subtitle mb-2 text-muted">Turn: {{ course.turno }}</h6>
           <p class="card-text">Internship: {{ course.estagio }}</p>
           <a class="card-link" [routerLink]="[course.id, 'view']">View details</a>
+
         </div>
       </div>
     </div>
@@ -78,5 +79,3 @@
   </div>
 
 </div>
-
-
