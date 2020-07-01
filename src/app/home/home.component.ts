@@ -1,4 +1,12 @@
 import {Component, OnInit} from '@angular/core';
+import {ICourse} from '../university/manageCourse/course.model';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {CourseService} from '../university/manageCourse/course.service';
+import {NgxSpinnerService} from 'ngx-spinner';
+import {ISubject} from '../university/manageSubject/subject.model';
+import {SubjectService} from '../university/manageSubject/subject.service';
+import {ITeacher} from '../university/manageTeacher/teacher.model';
+import {TeacherService} from '../university/manageTeacher/teacher.service';
 
 @Component({
   selector: 'app-home',
@@ -6,6 +14,10 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+
+  courses: ICourse[] | null = null;
+  subjects: ISubject[] | null = null;
+  teachers: ITeacher[] | null = null;
 
   public show = false;
   public buttonName: any = 'Ver detalhes';
@@ -16,7 +28,39 @@ export class HomeComponent implements OnInit {
   public show2 = false;
   public buttonName2: any = 'Ver detalhes';
 
-  ngOnInit() {  }
+  constructor(
+    protected modalService: NgbModal,
+    private courseService: CourseService,
+    private spinner: NgxSpinnerService,
+    private subjectService: SubjectService,
+    private teacherService: TeacherService
+  ) { }
+
+  ngOnInit(): void {
+    this.spinner.show();
+    this.courseService.getCourses().subscribe(data => {
+      this.spinner.hide();
+      this.courses = data;
+    }, err => {
+      this.spinner.hide();
+    });
+
+    this.spinner.show();
+    this.subjectService.getSubjects().subscribe(data => {
+      this.spinner.hide();
+      this.subjects = data;
+    }, err => {
+      this.spinner.hide();
+    });
+
+    this.spinner.show();
+    this.teacherService.getTeachers().subscribe(data => {
+      this.spinner.hide();
+      this.teachers = data;
+    }, err => {
+      this.spinner.hide();
+    });
+  }
 
   toggle() {
 
