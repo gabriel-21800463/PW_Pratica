@@ -22,11 +22,6 @@ export class NavbarComponent implements OnInit {
       searchKey: new FormControl(''),
     });
   }
-  getVal(item)
-  {
-    console.log(item.value);
-    alert(item.value);
-  }
 }
 
 
