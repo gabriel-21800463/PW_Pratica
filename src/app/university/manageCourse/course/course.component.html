@@ -13,8 +13,8 @@
     <span>No courses found</span>
   </div>
   <div>
-    <div class="form-group col-md-3 mb-4">
-      <h4>Course, Teacher and Subject:</h4>
+    <div class="form-group col-md-2 mb-2">
+      <h5>Course, Teacher and Subject:</h5>
       <input [(ngModel)]="procura"  [ngModelOptions]="{standalone: true}" (input)="Search()" class="form-control mr-sm-2" type="text" placeholder="Search"  />
     </div>
   </div>
@@ -25,7 +25,7 @@
           <h5 class="card-title">Course Name: {{ course.nomeCurso}}</h5>
           <h6 class="card-subtitle mb-2 text-muted">Turn: {{ course.turno }}</h6>
           <p class="card-text">Internship: {{ course.estagio }}</p>
-          <a class="card-link" [routerLink]="[course.id, 'view']">View details</a>
+          <a class="card-link" [routerLink]="[course.id + course.date, 'view']">View details</a>
 
         </div>
       </div>
@@ -57,12 +57,12 @@
         <td class="text-center">{{ course.estagio }}</td>
         <td class="text-right">
           <div class="btn-group">
-            <button type="submit" [routerLink]="[course.id, 'view']" class="btn btn-info btn-sm">
+            <button type="submit" [routerLink]="[course.id + course.date, 'view']" class="btn btn-info btn-sm">
               <i class="fa fa-eye"></i>
               <span class="d-none d-md-inline">View</span>
             </button>
 
-            <button type="submit" [routerLink]="[course.id, 'edit']" class="btn btn-primary btn-sm">
+            <button type="submit" [routerLink]="[course.id + course.date, 'edit']" class="btn btn-primary btn-sm">
               <i class="fa fa-pencil"></i>
               <span class="d-none d-md-inline">Edit</span>
             </button>

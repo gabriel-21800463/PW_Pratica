@@ -23,8 +23,8 @@ export class CourseDeleteDialogComponent implements OnInit {
     this.activeModal.dismiss();
   }
 
-  confirmDelete(id: string): void {
-    this.academicService.deleteCourse(id).then(() => {
+  confirmDelete(id: string, date: number): void {
+    this.academicService.deleteCourse(id + date).then(() => {
         this.activeModal.close();
         this.toastr.success('Course successfully deleted', 'Suceess');
       },

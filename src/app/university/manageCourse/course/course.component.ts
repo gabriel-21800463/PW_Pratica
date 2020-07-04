@@ -13,6 +13,7 @@ import {CourseDeleteDialogComponent} from './course-delete-dialog.component';
 export class CourseComponent implements OnInit {
   procura: string;
   courses: ICourse[] | null = null;
+  filtraData: number;
   // tslint:disable-next-line:max-line-length
   constructor(protected modalService: NgbModal, private courseService: CourseService, private spinner: NgxSpinnerService) { }
 
@@ -50,3 +51,4 @@ export class CourseComponent implements OnInit {
   }
 
 }
+

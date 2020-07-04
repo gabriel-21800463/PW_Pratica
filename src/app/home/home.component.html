@@ -88,9 +88,10 @@
               </tr>
               </thead>
               <tbody>
-              <tr *ngFor="let course of courses; let i = index">
+              <tr *ngFor="let course of courses|slice:0:3; let i = index">
                 <th scope="row">{{ course.nomeCurso }}</th>
                 <th scope="row" >{{ course.turno }}</th>
+                <th scope="row" >{{ course.date| date: 'short' }}</th>
               </tr>
               </tbody>
             </table>
@@ -122,9 +123,10 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr *ngFor="let subject of courses; let i = index">
+                <tr *ngFor="let subject of courses; let i = index" >
                   <th scope="row">{{ subject.nomeAluno }}</th>
                   <th scope="row" >{{ subject.nomeCurso }}</th>
+
                 </tr>
                 </tbody>
               </table>

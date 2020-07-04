@@ -22,7 +22,7 @@
           <div class="card-body">
             <h5 class="card-title">Title Subject: {{ subject.subject }}</h5>
             <h6 class="card-subtitle mb-2 text-muted">Student Name: {{ subject.nomeAluno }}</h6>
-            <a class="card-link" [routerLink]="['/universit/subject',subject.id, 'view']">View details</a>
+            <a class="card-link" [routerLink]="['/universit/subject',subject.id + subject.date, 'view']">View details</a>
           </div>
         </div>
       </div>

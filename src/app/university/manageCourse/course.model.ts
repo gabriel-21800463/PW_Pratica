@@ -12,6 +12,7 @@ export interface ICourse {
   nomeAluno?: string;
   bolsa?: string;
   nacionalidade?: string;
+  date?: number;
 }
 
 export class Course implements ICourse {
@@ -28,6 +29,7 @@ export class Course implements ICourse {
     public disciplina?: string,
     public nomeAluno?: string,
     public bolsa?: string,
-    public nacionalidade?: string
+    public nacionalidade?: string,
+    public date?: number,
   ) {}
 }

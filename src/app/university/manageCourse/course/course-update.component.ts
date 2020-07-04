@@ -12,7 +12,6 @@ import {CourseService} from '../course.service';
   styleUrls: ['./course-update.component.scss']
 })
 export class CourseUpdateComponent implements OnInit {
-
   courseForm: FormGroup;
   isSaving: boolean;
 
@@ -62,6 +61,7 @@ export class CourseUpdateComponent implements OnInit {
   private createForm() {
     this.courseForm = new FormGroup({
       id: new FormControl(''),
+      date: new FormControl(''),
       nomeCurso: new FormControl('', [Validators.required, Validators.maxLength(35)]),
       teacher: new FormControl('', [Validators.required, Validators.maxLength(50)]),
       subject: new FormControl('', [Validators.required, Validators.maxLength(50)]),
@@ -81,6 +81,7 @@ export class CourseUpdateComponent implements OnInit {
   private updateForm(course: Course): void {
     this.courseForm.patchValue({
       id: course.id,
+      date: course.date,
       nomeCurso: course.nomeCurso,
       teacher: course.teacher,
       subject: course.subject,
