@@ -8,16 +8,17 @@
     </button>
   </h2>
   <hr>
-
-  <div class="alert alert-warning" id="no-result" *ngIf="courses?.length === 0">
-    <span>No courses found</span>
-  </div>
   <div>
     <div class="form-group col-md-2 mb-2">
       <h5>Course, Teacher and Subject:</h5>
       <input [(ngModel)]="procura"  [ngModelOptions]="{standalone: true}" (input)="Search()" class="form-control mr-sm-2" type="text" placeholder="Search"  />
     </div>
   </div>
+  <div class="alert alert-warning" id="no-result" *ngIf="courses?.length === 0">
+    <span>No courses found</span>
+  </div>
+
+
   <div class="row" >
     <div class="col-md-4 mt-3" *ngFor="let course of courses; let i = index">
       <div class="card">
