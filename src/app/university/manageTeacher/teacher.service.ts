@@ -31,15 +31,25 @@ export class TeacherService {
     return this.af.collection<ITeacher>(TeacherService.TEACHER_KEY).doc(teacherId).valueChanges();
   }
 
+  ordemDesc(teacher: boolean): Observable<Array<ITeacher>> {
+    return this.angularAuth.user
+      .pipe(takeUntil(this.unsubscribe),
+        switchMap(teachers => {
+          return this.af.collection<ITeacher>(TeacherService.TEACHER_KEY,
+            ref => ref.orderBy('date', 'desc')).valueChanges();
+        }));
+  }
+
   public async createTeacher(teacher: ITeacher): Promise<void> {
     const currentUser = firebase.auth().currentUser;
     teacher.id = this.af.createId();
-    return await this.af.collection(TeacherService.TEACHER_KEY).doc(teacher.id).set(teacher);
+    teacher.date = Date.now();
+    return await this.af.collection(TeacherService.TEACHER_KEY).doc(teacher.id + teacher.date).set(teacher);
   }
 
   public async updateTeacher(teacher: ITeacher): Promise<void> {
     const currentUser = firebase.auth().currentUser;
-    return await this.af.collection(TeacherService.TEACHER_KEY).doc(teacher.id).set(teacher);
+    return await this.af.collection(TeacherService.TEACHER_KEY).doc(teacher.id + teacher.date).set(teacher);
   }
 
   public async deleteTeacher(teacherId: string): Promise<void> {

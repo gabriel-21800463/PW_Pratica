@@ -12,7 +12,7 @@ import * as firebase from 'firebase';
 })
 export class CourseService {
 
-  private static COURSE_KEY = 'course';
+  static COURSE_KEY = 'course';
 
   private unsubscribe: Subject<void> = new Subject<void>();
 
@@ -31,6 +31,15 @@ export class CourseService {
     return this.af.collection<ICourse>(CourseService.COURSE_KEY).doc(courseId).valueChanges();
   }
 
+  ordemDesc(course: boolean): Observable<Array<ICourse>> {
+    return this.angularAuth.user
+      .pipe(takeUntil(this.unsubscribe),
+        switchMap(courses => {
+          return this.af.collection<ICourse>(CourseService.COURSE_KEY,
+            ref => ref.orderBy('date', 'desc')).valueChanges();
+        }));
+  }
+
   public async createCourse(course: ICourse): Promise<void> {
     const currentUser = firebase.auth().currentUser;
     course.id = this.af.createId();
@@ -40,7 +49,7 @@ export class CourseService {
 
   public async updateCourse(course: ICourse): Promise<void> {
     const currentUser = firebase.auth().currentUser;
-    return await this.af.collection(CourseService.COURSE_KEY).doc(course.id).set(course);
+    return await this.af.collection(CourseService.COURSE_KEY).doc(course.id + course.date).set(course);
   }
 
   public async deleteCourse(courseId: string): Promise<void> {

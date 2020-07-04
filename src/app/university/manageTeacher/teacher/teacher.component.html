@@ -38,7 +38,7 @@
             <h5 class="card-title">Teacher Name: {{ teacher.nomeTeacher}}</h5>
             <h6 class="card-subtitle mb-2 text-muted">Degree: {{ teacher.grau }}</h6>
             <p class="card-text">Discipline: {{ teacher.disciplina }}.</p>
-            <a class="card-link" [routerLink]="[teacher.id, 'view']">View details</a>
+            <a class="card-link" [routerLink]="[teacher.id + teacher.date, 'view']">View details</a>
           </div>
         </div>
       </div>
@@ -70,12 +70,12 @@
         <td>{{ teacher.disciplina }}</td>
         <td class="text-right">
           <div class="btn-group">
-            <button type="submit" [routerLink]="[teacher.id, 'view']" class="btn btn-info btn-sm">
+            <button type="submit" [routerLink]="[teacher.id + teacher.date, 'view']" class="btn btn-info btn-sm">
               <i class="fa fa-eye"></i>
               <span class="d-none d-md-inline">View</span>
             </button>
 
-            <button type="submit" [routerLink]="[teacher.id, 'edit']" class="btn btn-primary btn-sm">
+            <button type="submit" [routerLink]="[teacher.id + teacher.date, 'edit']" class="btn btn-primary btn-sm">
               <i class="fa fa-pencil"></i>
               <span class="d-none d-md-inline">Edit</span>
             </button>

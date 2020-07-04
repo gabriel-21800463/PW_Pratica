@@ -75,6 +75,7 @@ export class SubjectUpdateComponent implements OnInit {
   private createForm() {
     this.subjectForm = new FormGroup({
       id: new FormControl(''),
+      date: new FormControl(''),
       nomeAluno: new FormControl('', [Validators.required, Validators.maxLength(35)]),
       curso: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -88,6 +89,7 @@ export class SubjectUpdateComponent implements OnInit {
   private updateForm(subject: Subject): void {
     this.subjectForm.patchValue({
       id: subject.id,
+      date: subject.date,
       nomeAluno: subject.nomeAluno,
       curso: subject.curso,
       email: subject.email,

@@ -22,8 +22,8 @@ export class TeacherDeleteDialogComponent implements OnInit {
     this.activeModal.dismiss();
   }
 
-  confirmDelete(id: string): void {
-    this.academicService.deleteTeacher(id).then(() => {
+  confirmDelete(id: string, date: number): void {
+    this.academicService.deleteTeacher(id + date).then(() => {
         this.activeModal.close();
         this.toastr.success('Teacher successfully deleted', 'Suceess');
       },

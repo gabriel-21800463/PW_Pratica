@@ -22,8 +22,8 @@ export class SubjectDeleteDialogComponent implements OnInit {
     this.activeModal.dismiss();
   }
 
-  confirmDelete(id: string): void {
-    this.subjectService.deleteSubject(id).then(() => {
+  confirmDelete(id: string, date: number): void {
+    this.subjectService.deleteSubject(id + date).then(() => {
         this.activeModal.close();
         this.toastr.success('Subject successfully deleted', 'Suceess');
       },

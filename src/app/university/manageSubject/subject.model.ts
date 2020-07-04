@@ -6,7 +6,7 @@ export interface ISubject {
   turno?: string;
   bolsa?: string;
   nacionalidade?: string;
-
+  date?: number;
 }
 
 export class Subject implements ISubject {
@@ -17,6 +17,7 @@ export class Subject implements ISubject {
     public email?: string,
     public turno?: string,
     public bolsa?: string,
-    public nacionalidade?: string
+    public nacionalidade?: string,
+    public date?: number,
   ) {}
 }

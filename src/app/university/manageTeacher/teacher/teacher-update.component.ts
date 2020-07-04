@@ -75,6 +75,7 @@ export class TeacherUpdateComponent implements OnInit {
   private createForm() {
     this.teacherForm = new FormGroup({
       id: new FormControl(''),
+      date: new FormControl(''),
       nomeTeacher: new FormControl('', [Validators.required, Validators.maxLength(35)]),
       curso: new FormControl('', [Validators.required]),
       grau: new FormControl('', [Validators.required, Validators.maxLength(30)]),
@@ -88,6 +89,7 @@ export class TeacherUpdateComponent implements OnInit {
   private updateForm(teacher: Teacher): void {
     this.teacherForm.patchValue({
       id: teacher.id,
+      date: teacher.date,
       nomeTeacher: teacher.nomeTeacher,
       curso: teacher.curso,
       grau: teacher.grau,

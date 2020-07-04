@@ -31,15 +31,25 @@ export class SubjectService {
     return this.af.collection<ISubject>(SubjectService.SUBJECT_KEY).doc(subjectId).valueChanges();
   }
 
+  ordemDesc(subject: boolean): Observable<Array<ISubject>> {
+    return this.angularAuth.user
+      .pipe(takeUntil(this.unsubscribe),
+        switchMap(subjects => {
+          return this.af.collection<ISubject>(SubjectService.SUBJECT_KEY,
+            ref => ref.orderBy('date', 'desc')).valueChanges();
+        }));
+  }
+
   public async createSubject(subject: ISubject): Promise<void> {
     const currentUser = firebase.auth().currentUser;
     subject.id = this.af.createId();
-    return await this.af.collection(SubjectService.SUBJECT_KEY).doc(subject.id).set(subject);
+    subject.date = Date.now();
+    return await this.af.collection(SubjectService.SUBJECT_KEY).doc(subject.id + subject.date).set(subject);
   }
 
   public async updateSubject(subject: ISubject): Promise<void> {
     const currentUser = firebase.auth().currentUser;
-    return await this.af.collection(SubjectService.SUBJECT_KEY).doc(subject.id).set(subject);
+    return await this.af.collection(SubjectService.SUBJECT_KEY).doc(subject.id + subject.date).set(subject);
   }
 
   public async deleteSubject(subjectId: string): Promise<void> {

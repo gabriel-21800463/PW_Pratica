@@ -6,6 +6,7 @@ export interface ITeacher {
   localFormacao?: string;
   disciplina?: string;
   turno?: string;
+  date?: number;
 }
 
 export class Teacher implements ITeacher {
@@ -17,5 +18,6 @@ export class Teacher implements ITeacher {
     public localFormacao?: string,
     public disciplina?: string,
     public turno?: string,
+    public date?: number,
   ) {}
 }
