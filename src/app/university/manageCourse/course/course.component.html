@@ -41,7 +41,7 @@
         <th scope="col" ><span>ID</span></th>
         <th scope="col" ><span>Course Name </span></th>
         <th scope="col" ><span>Teacher</span></th>
-        <th scope="col" ><span>Subject</span></th>
+        <th scope="col" ><span>Student Subject</span></th>
         <th scope="col" ><span>Turn</span></th>
         <th scope="col" class="text-center" ><span>Internship</span></th>
         <th scope="col" ></th>
@@ -52,7 +52,7 @@
         <td><a [routerLink]="[course.id, 'view']">{{ course.id }}</a></td>
         <td>{{ course.nomeCurso }}</td>
         <td>{{ course.teacher }}</td>
-        <td>{{ course.subject }}</td>
+        <td>{{ course.nomeAluno }}</td>
         <td>{{ course.turno }}</td>
         <td class="text-center">{{ course.estagio }}</td>
         <td class="text-right">

@@ -42,7 +42,7 @@ export class CourseComponent implements OnInit {
         // tslint:disable-next-line:max-line-length
         // @ts-ignore
         // tslint:disable-next-line:max-line-length
-        return res.nomeCurso.toLocaleLowerCase().match(this.procura.toLocaleLowerCase()) + res.teacher.toLocaleLowerCase().match(this.procura.toLocaleLowerCase())  + res.subject.toLocaleLowerCase().match(this.procura.toLocaleLowerCase()) ;
+        return res.nomeCurso.toLocaleLowerCase().match(this.procura.toLocaleLowerCase()) + res.teacher.toLocaleLowerCase().match(this.procura.toLocaleLowerCase())  + res.nomeAluno.toLocaleLowerCase().match(this.procura.toLocaleLowerCase()) ;
       });
       // tslint:disable-next-line:triple-equals
     }else if (this.procura == '' ){
