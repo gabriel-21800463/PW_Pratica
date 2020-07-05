@@ -14,7 +14,7 @@
         <label for="inputCourse">Course</label>
         <select id="inputCourse" class="form-control" [ngClass]="teacherForm.get('curso').invalid && (teacherForm.get('curso').dirty || teacherForm.get('curso').touched) && teacherForm.controls['curso'].errors ? 'is-invalid' : ''"
                 formControlName="curso">
-          <option></option>
+          <option><-- Choose Course --></option>
           <option *ngFor="let teacher of courses; let i = index">
             {{ teacher.nomeCurso}}
           </option>
