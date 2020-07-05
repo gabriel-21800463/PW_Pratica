@@ -16,7 +16,7 @@
                id="inputnacionalidade" placeholder="Nationality" formControlName="nacionalidade">
         <div class="invalid-feedback" *ngIf="subjectForm.get('nacionalidade').invalid && (subjectForm.get('nacionalidade').dirty || subjectForm.get('nacionalidade').touched)">
           <span *ngIf="subjectForm.controls['nacionalidade'].hasError('required')">This field is required</span>
-          <span *ngIf="subjectForm.controls['nacionalidade'].hasError('maxlength')">Max length of this field is 35 characters</span>
+          <span *ngIf="subjectForm.controls['nacionalidade'].hasError('maxlength')">Max length of this field is 30 characters</span>
         </div>
       </div>
     </div>

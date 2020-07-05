@@ -76,12 +76,12 @@ export class SubjectUpdateComponent implements OnInit {
     this.subjectForm = new FormGroup({
       id: new FormControl(''),
       date: new FormControl(''),
-      nomeAluno: new FormControl('', [Validators.required, Validators.maxLength(35)]),
+      nomeAluno: new FormControl('', [Validators.required, Validators.maxLength(30)]),
       curso: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
       turno: new FormControl('', [Validators.required]),
       bolsa: new FormControl('', [Validators.required]),
-      nacionalidade: new FormControl('', [Validators.required, Validators.maxLength(35)]),
+      nacionalidade: new FormControl('', [Validators.required, Validators.maxLength(20)]),
       formRecaptcha: new FormControl(null, [Validators.required])
     });
   }

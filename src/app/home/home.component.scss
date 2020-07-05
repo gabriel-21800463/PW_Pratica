@@ -1,18 +1,13 @@
 .jumbotron {
 
-  background: url(EI.jpg);
+  background: url(https://eduportugal.eu/wp-content/uploads/2018/10/foto-ulht_1.jpg);
   background-size: cover;
-  width: 120%;
-  height: 60vh;
+  width: 100%;
+  height: 58vh;
 }
-.estilo{
-  color: white;
-  font-style: italic;
-  padding-top: 4%;
-  padding-right: 1%;
-  padding-left: 1%;
-  font-size: 60px;
-  text-shadow: #000 2px 3px 2px;
+#curso, #teacher, #subject{
+  padding-right: 2%;
+  padding-left: 5%;
 }
 .margem {
   padding-bottom: 3%;
@@ -23,6 +18,29 @@
   margin-top: 3%;
 
 }
+#curso img {
+  width: 10%;
+  height: 40px;
+  padding-bottom: 5px;
+}
+
+#teacher img{
+  width: 10%;
+  height: 40px;
+  padding-bottom: 5px;
+}
+#subject img{
+  width: 10%;
+  height: 40px;
+  padding-bottom: 5px;
+}
+
+/*#teacher{
+  background: url("https://media.istockphoto.com/vectors/university-professor-icon-vector-id648233622?k=6&m=648233622&s=170667a&w=0&h=bmqFdtbsb1vr3SQ4kjVAC7GpLTF1woYzmbByCU-w5vA=");
+  background-size: cover;
+  width: 3%;
+  height: 20px;
+}*/
 
 
 

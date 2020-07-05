@@ -76,11 +76,11 @@ export class TeacherUpdateComponent implements OnInit {
     this.teacherForm = new FormGroup({
       id: new FormControl(''),
       date: new FormControl(''),
-      nomeTeacher: new FormControl('', [Validators.required, Validators.maxLength(35)]),
+      nomeTeacher: new FormControl('', [Validators.required, Validators.maxLength(30)]),
       curso: new FormControl('', [Validators.required]),
-      grau: new FormControl('', [Validators.required, Validators.maxLength(30)]),
-      localFormacao: new FormControl('', [Validators.required]),
-      disciplina: new FormControl('', [Validators.required]),
+      grau: new FormControl('', [Validators.required]),
+      localFormacao: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+      disciplina: new FormControl('', [Validators.required, Validators.maxLength(30)]),
       turno: new FormControl('', [Validators.required]),
       formRecaptcha: new FormControl(null, [Validators.required])
     });

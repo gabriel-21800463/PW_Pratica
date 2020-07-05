@@ -7,7 +7,7 @@
                id="inputTeacherName" placeholder="Teacher Name" formControlName="nomeTeacher">
         <div class="invalid-feedback" *ngIf="teacherForm.get('nomeTeacher').invalid && (teacherForm.get('nomeTeacher').dirty || teacherForm.get('nomeTeacher').touched)">
           <span *ngIf="teacherForm.controls['nomeTeacher'].hasError('required')">This field is required</span>
-          <span *ngIf="teacherForm.controls['nomeTeacher'].hasError('maxlength')">Max length of this field is 50 characters</span>
+          <span *ngIf="teacherForm.controls['nomeTeacher'].hasError('maxlength')">Max length of this field is 30 characters</span>
         </div>
       </div>
       <div class="form-group col-md-6 mb-6">
@@ -22,7 +22,6 @@
 
         <div class="invalid-feedback" *ngIf="teacherForm.get('curso').invalid && (teacherForm.get('curso').dirty || teacherForm.get('curso').touched)">
           <span *ngIf="teacherForm.controls['curso'].hasError('required')">To add a teacher you need a Course created</span>
-          <span *ngIf="teacherForm.controls['curso'].hasError('maxlength')">Max length of this field is 50 characters</span>
         </div>
       </div>
       <div class="form-group col-md-6 mb-6">
@@ -35,7 +34,6 @@
         </select>
         <div class="invalid-feedback" *ngIf="teacherForm.get('grau').invalid && (teacherForm.get('grau').dirty || teacherForm.get('grau').touched)">
           <span *ngIf="teacherForm.controls['grau'].hasError('required')">This field is required</span>
-          <span *ngIf="teacherForm.controls['grau'].hasError('maxlength')">Max length of this field is 50 characters</span>
         </div>
       </div>
       <div class="form-group col-md-6 mb-6">
@@ -53,7 +51,7 @@
                id="inputDiscipline" placeholder="Formation Spot" formControlName="disciplina">
         <div class="invalid-feedback" *ngIf="teacherForm.get('disciplina').invalid && (teacherForm.get('disciplina').dirty || teacherForm.get('disciplina').touched)">
           <span *ngIf="teacherForm.controls['disciplina'].hasError('required')">This field is required</span>
-          <span *ngIf="teacherForm.controls['disciplina'].hasError('maxlength')">Max length of this field is 50 characters</span>
+          <span *ngIf="teacherForm.controls['disciplina'].hasError('maxlength')">Max length of this field is 30 characters</span>
         </div>
       </div>
       <div class="form-group col-md-6 mb-6">
@@ -65,7 +63,6 @@
         </select>
         <div class="invalid-feedback" *ngIf="teacherForm.get('turno').invalid && (teacherForm.get('turno').dirty || teacherForm.get('turno').touched)">
           <span *ngIf="teacherForm.controls['turno'].hasError('required')">This field is required</span>
-          <span *ngIf="teacherForm.controls['turno'].hasError('maxlength')">Max length of this field is 50 characters</span>
         </div>
       </div>
     </div>
