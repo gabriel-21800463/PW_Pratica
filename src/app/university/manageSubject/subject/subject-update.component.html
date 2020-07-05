@@ -7,7 +7,7 @@
                id="inputStudentName" placeholder="Student Name" formControlName="nomeAluno">
         <div class="invalid-feedback" *ngIf="subjectForm.get('nomeAluno').invalid && (subjectForm.get('nomeAluno').dirty || subjectForm.get('nomeAluno').touched)">
           <span *ngIf="subjectForm.controls['nomeAluno'].hasError('required')">This field is required</span>
-          <span *ngIf="subjectForm.controls['nomeAluno'].hasError('maxlength')">Max length of this field is 50 characters</span>
+          <span *ngIf="subjectForm.controls['nomeAluno'].hasError('maxlength')">Max length of this field is 50 characters.</span>
         </div>
       </div>
       <div class="form-group col-md-6 mb-6">
